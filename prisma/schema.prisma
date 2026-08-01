@@ -5,9 +5,86 @@
 
 generator client {
   provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  output   = "../src/@types/prisma"
 }
 
 datasource db {
   provider = "postgresql"
+}
+
+enum USER_ROLE {
+  ADMIN
+  USER
+}
+
+enum STATUS {
+  ACTIVE
+  COMPLETED
+  CANCELLED
+}
+
+enum PRIORITY {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+model Project {
+  id          String  @id @default(uuid(7))
+  name        String  
+  description String?
+  status      STATUS  @default(ACTIVE)
+
+  tasks Task[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("projects")
+}
+
+model User {
+  id String @id @default(uuid(7))
+  name String 
+  email String @unique
+  password String 
+  role USER_ROLE @default(USER)
+
+  taskUser TaskUser[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+model Task {
+  id   String @id @default(uuid(7))
+  title String
+  description String?
+  priority  PRIORITY
+  completed Boolean @default(false)
+
+  deadline DateTime
+
+  projectId String  @map("project_id")
+  project   Project @relation(fields: [projectId], references: [id],onDelete: Cascade,onUpdate:NoAction)
+
+  taskUser TaskUser[]
+
+  @@map("tasks")
+}
+
+model TaskUser {
+  id String @id @unique @default(uuid(7))
+  
+  userId String @map("user_id")
+  user User @relation(fields: [userId],references: [id],onDelete: Cascade,onUpdate:NoAction)
+
+  taskId String @map("task_id")
+  task Task @relation(fields: [taskId],references: [id],onDelete: Cascade,onUpdate: NoAction)
+
+  assignedAt DateTime @default(now()) @map("assigned_at")
+  
+  @@map("task_user")
 }
