@@ -4,7 +4,7 @@ import type { FastifyReply, FastifyRequest } from "fastify";
 import z from "zod";
 
 
-export async function RegisterUser(request: FastifyRequest, reply: FastifyReply ){
+export async function registerUser(request: FastifyRequest, reply: FastifyReply ){
 
     try{
 

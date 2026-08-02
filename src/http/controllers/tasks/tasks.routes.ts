@@ -1,0 +1,16 @@
+import { verifyJwt } from "@/http/middlewares/verify-jwt.js"
+import { verifyUserRole } from "@/http/middlewares/verify-user-roles.js"
+import type { FastifyInstance } from "fastify"
+import { CreateTask } from "./create-tasks.controller.js"
+import { GetTaskById } from "./get-tasks.controller.js"
+import { UpdateTask } from "./update-tasks.controller.js"
+import { DeleteTask } from "./delete-tasks.controller.js"
+
+export async function TasksRoutes(app:FastifyInstance) {
+    
+    app.post('/',{onRequest:verifyJwt}, CreateTask)
+    app.get('/:id',{onRequest:verifyJwt} ,GetTaskById)
+    // app.get('/',{onRequest:verifyJwt} ,List)
+    app.patch('/:id',{onRequest:verifyJwt},UpdateTask)
+    app.delete('/:id',{onRequest:verifyUserRole(['ADMIN'])},DeleteTask)
+}

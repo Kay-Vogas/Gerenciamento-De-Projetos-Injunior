@@ -2,7 +2,7 @@ import { makeDeleteUser } from "@/use-cases/users/facotories-user/make-delete.js
 import type { FastifyReply, FastifyRequest } from "fastify";
 import z from "zod";
 
-export async function DeleteUser(request:FastifyRequest,reply:FastifyReply) {
+export async function deleteUser(request:FastifyRequest,reply:FastifyReply) {
     try{
 
         const deleteUserParamsSchema = z.object({
@@ -13,7 +13,7 @@ export async function DeleteUser(request:FastifyRequest,reply:FastifyReply) {
 
         await makeDeleteUser().execute({id})
 
-        return reply.status(200).send()
+        return reply.status(204).send()
 
     }catch(error){
         throw new Error(`Erro ai deletar seu Usuário,${error}`)

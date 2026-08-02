@@ -2,7 +2,7 @@ import { UserPresenter } from "@/http/presenters/user-presenter.js";
 import { makeListUser } from "@/use-cases/users/facotories-user/make-list.js";
 import type { FastifyReply, FastifyRequest } from "fastify";
 
-export async function ListUsers(_request: FastifyRequest, reply: FastifyReply) {
+export async function listUsers(_request: FastifyRequest, reply: FastifyReply) {
   try {
 
     const listUsersUseCase = makeListUser();

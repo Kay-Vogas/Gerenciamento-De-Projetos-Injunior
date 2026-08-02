@@ -3,7 +3,7 @@ import { makeGetUser } from "@/use-cases/users/facotories-user/make-get.js";
 import type { FastifyReply, FastifyRequest } from "fastify";
 import z from "zod";
 
-export async function GetUser(request: FastifyRequest, reply: FastifyReply ) {
+export async function getUser(request: FastifyRequest, reply: FastifyReply ) {
 
     try{
 

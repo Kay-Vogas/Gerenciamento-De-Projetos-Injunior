@@ -3,7 +3,7 @@ import { makeUpdateUser } from "@/use-cases/users/facotories-user/make-update.js
 import type { FastifyReply, FastifyRequest } from "fastify";
 import z, { email, string } from "zod";
 
-export async function UpdateUser(request:FastifyRequest,reply:FastifyReply) {
+export async function updateUser(request:FastifyRequest,reply:FastifyReply) {
     
     try{
 
