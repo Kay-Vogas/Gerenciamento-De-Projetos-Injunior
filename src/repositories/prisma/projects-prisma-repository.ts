@@ -1,5 +1,5 @@
 import type { Prisma, Project } from '@/@types/prisma/client.js'
-import type { ProjectsRepository } from '../projects-repository.js'
+import type { ProjectsRepository, ProjectStatistics } from '../projects-repository.js'
 import { prisma } from '@/libs/prisma.js'
 
 export class PrismaProjectRepository implements ProjectsRepository {
@@ -54,5 +54,28 @@ export class PrismaProjectRepository implements ProjectsRepository {
         id,
       },
     })
+  }
+
+  async getProjectsStatistics(): Promise<ProjectStatistics[]> {
+    const projects = await prisma.project.findMany({
+      select: {
+        id: true,
+        name: true,
+        status: true,
+        tasks: {
+          select: {
+            completed: true,
+          },
+        },
+      },
+    })
+
+    return projects.map((project) => ({
+      id: project.id,
+      name: project.name,
+      status: project.status,
+      totalTasks: project.tasks.length,
+      completedTasks: project.tasks.filter((task) => task.completed).length,
+    }))
   }
 }
