@@ -1,5 +1,7 @@
 import type { Task, USER_ROLE } from '@/@types/prisma/client.js'
 import type { TasksRepository } from '@/repositories/tasks-repository.js'
+import { NotAllowedError } from '../error/not-allow-error.js'
+import { ResourceNotFoundError } from '../error/resource-not-found-error.js'
 
 interface CompleteTaskUseCaseRequest {
   taskId: string
@@ -22,17 +24,15 @@ export class CompleteTaskUseCase {
     const task = await this.tasksRepository.findByIdWithUsers(taskId)
 
     if (!task) {
-      throw new Error('Tarefa não encontrada')
+      throw new ResourceNotFoundError();    
     }
-
+    
     const isAdmin = userRole === 'ADMIN'
 
     const isAssigned = task.taskUser.some((tu) => tu.userId === userId)
 
     if (!isAdmin && !isAssigned) {
-      throw new Error(
-        'Não autorizado: Você precisa ser um Admin ou estar atribuído a esta tarefa para concluí-la.',
-      )
+      throw new NotAllowedError();
     }
 
     const updatedTask = await this.tasksRepository.update(taskId, {
