@@ -1,20 +1,20 @@
-import type { Prisma, Project } from "@/@types/prisma/client.js";
-import type { ProjectsRepository } from "../projects-repository.js";
-import { prisma } from "@/libs/prisma.js";
+import type { Prisma, Project } from '@/@types/prisma/client.js'
+import type { ProjectsRepository } from '../projects-repository.js'
+import { prisma } from '@/libs/prisma.js'
 
 export class PrismaProjectRepository implements ProjectsRepository {
   async create(data: Prisma.ProjectCreateInput) {
     const project = await prisma.project.create({
       data,
-    });
+    })
 
-    return project;
+    return project
   }
 
   async list() {
-    const projects = await prisma.project.findMany();
+    const projects = await prisma.project.findMany()
 
-    return projects;
+    return projects
   }
 
   async findBy(where: Prisma.ProjectWhereInput): Promise<Project | null> {
@@ -23,16 +23,16 @@ export class PrismaProjectRepository implements ProjectsRepository {
       include: {
         tasks: true,
       },
-    });
+    })
 
-    return project;
+    return project
   }
 
   async update(id: string, data: Prisma.ProjectUpdateInput) {
     return prisma.project.update({
       where: { id },
       data,
-    });
+    })
   }
 
   async delete(id: string) {
@@ -43,16 +43,16 @@ export class PrismaProjectRepository implements ProjectsRepository {
       select: {
         id: true,
       },
-    });
+    })
 
     if (hasTask) {
-      throw new Error("Não é possível excluir um projeto que possui tarefas.");
+      throw new Error('Não é possível excluir um projeto que possui tarefas.')
     }
 
     return prisma.project.delete({
       where: {
         id,
       },
-    });
+    })
   }
 }
