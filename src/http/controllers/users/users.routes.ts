@@ -7,27 +7,17 @@ import { deleteUser } from './delete-user.controller.js'
 import { AuthUser } from './auth-user.controller.js'
 import { verifyJwt } from '@/http/middlewares/verify-jwt.js'
 import { verifyUserRole } from '@/http/middlewares/verify-user-roles.js'
+import { ListTasksByUser } from '../relationships/list-task-by-user.controller.js'
 
 export async function userRoutes(app: FastifyInstance) {
-  // "/auth"
+
   app.post('/register', registerUser)
   app.post('/login', AuthUser)
 
-  // "/users"
   app.get('/:id', { onRequest: verifyJwt }, getUser)
   app.get('/', { onRequest: verifyJwt }, listUsers)
-  app.patch(
-    '/:id',
-    { onRequest: verifyUserRole(['ADMIN', 'USER']) },
-    updateUser,
-  )
+  app.patch('/:id',{ onRequest: verifyUserRole(['ADMIN', 'USER']) },updateUser,)
   app.delete('/:id', { onRequest: verifyJwt }, deleteUser)
 
-  // Projects
-
-  //Tasks
-
-  // Relacionamentos
-
-  // Relatório
+  app.get('/:id/tasks', { onRequest: verifyJwt }, ListTasksByUser)
 }

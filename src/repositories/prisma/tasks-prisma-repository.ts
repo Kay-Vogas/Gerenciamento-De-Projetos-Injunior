@@ -2,11 +2,12 @@ import type { Prisma, Task } from '@/@types/prisma/client.js'
 import type {
   FindAllTasksFilters,
   TasksRepository,
-  TaskWithUsers,
+
 } from '../tasks-repository.js'
 import { prisma } from '@/libs/prisma.js'
 
 export class PrismaTaskRepository implements TasksRepository {
+  
   async create(data: Prisma.TaskUncheckedCreateInput) {
     const task = await prisma.task.create({
       data,
@@ -36,7 +37,7 @@ export class PrismaTaskRepository implements TasksRepository {
     return task
   }
 
-  async findByIdWithUsers(id: string): Promise<TaskWithUsers | null> {
+  async findByIdWithUsers(id: string) {
     const task = await prisma.task.findUnique({
       where: { id },
       include: {
@@ -46,7 +47,7 @@ export class PrismaTaskRepository implements TasksRepository {
     return task
   }
 
-  async list(filters?: FindAllTasksFilters): Promise<Task[]> {
+  async list(filters?: FindAllTasksFilters) {
     const tasks = await prisma.task.findMany({
       where: {
         projectId: filters?.projectId,
@@ -55,5 +56,20 @@ export class PrismaTaskRepository implements TasksRepository {
       },
     })
     return tasks
+  }
+
+  async findManyByProjectId(projectId: string): Promise<Task[]> {
+    return prisma.task.findMany({
+      where: { projectId },
+    });
+  }
+
+  async findManyByUserId(userId: string): Promise<Task[]> {
+    const taskUsers = await prisma.taskUser.findMany({
+      where: { userId },
+      include: { task: true },
+    });
+
+    return taskUsers.map(tu => tu.task);
   }
 }

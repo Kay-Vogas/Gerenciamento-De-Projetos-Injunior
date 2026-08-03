@@ -21,4 +21,7 @@ export interface TasksRepository {
 
   findByIdWithUsers(id: string): Promise<TaskWithUsers | null>
   list(filters?: FindAllTasksFilters): Promise<Task[]>
+
+  findManyByProjectId(projectId: string): Promise<Task[]>;
+  findManyByUserId(userId: string): Promise<Task[]>;
 }
