@@ -12,7 +12,7 @@ app.register(fastifyJwt, {
 
 app.register(appRoutes)
 
-app.setErrorHandler((error,request,reply)=>{
+app.setErrorHandler((error,_request,reply)=>{
 
   if(error instanceof ZodError){
     return reply.status(400).send({
