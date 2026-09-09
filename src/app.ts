@@ -24,7 +24,7 @@ app.setErrorHandler((error,_request,reply)=>{
 
   if(error instanceof SyntaxError){
     return reply.status(400).send({
-      mesagge: 'O corpo da requesição não está no formato JSON válido, verifique a estrutura de dados enviados..'
+      mesagge: 'O corpo da requesição não está no formato JSON válido, verifique a estrutura de dados enviados...'
     })
   }
 
