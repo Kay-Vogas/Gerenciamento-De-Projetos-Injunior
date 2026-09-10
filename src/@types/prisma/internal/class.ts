@@ -10,96 +10,99 @@
  * Please import the `PrismaClient` class from the `client.ts` file instead.
  */
 
-import * as runtime from '@prisma/client/runtime/client'
-import type * as Prisma from './prismaNamespace.js'
+import * as runtime from "@prisma/client/runtime/client";
+import type * as Prisma from "./prismaNamespace.js";
 
 const config: runtime.GetPrismaClientConfig = {
-  previewFeatures: [],
-  clientVersion: '7.9.1',
-  engineVersion: 'e922089b7d7502aff4249d5da3420f6fa55fc6ad',
-  activeProvider: 'postgresql',
-  inlineSchema:
-    '// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Get a free hosted Postgres database in seconds: `npx create-db`\n\ngenerator client {\n  provider = "prisma-client"\n  output   = "../src/@types/prisma"\n}\n\ndatasource db {\n  provider = "postgresql"\n}\n\nenum USER_ROLE {\n  ADMIN\n  USER\n}\n\nenum STATUS {\n  ACTIVE\n  COMPLETED\n  CANCELLED\n}\n\nenum PRIORITY {\n  LOW\n  MEDIUM\n  HIGH\n}\n\nmodel Project {\n  id          String  @id @default(uuid(7))\n  name        String\n  description String?\n  status      STATUS  @default(ACTIVE)\n\n  tasks Task[]\n\n  createdAt DateTime @default(now()) @map("created_at")\n  updatedAt DateTime @updatedAt @map("updated_at")\n\n  @@map("projects")\n}\n\nmodel User {\n  id       String    @id @default(uuid(7))\n  name     String\n  email    String    @unique\n  password String\n  role     USER_ROLE @default(USER)\n\n  taskUser TaskUser[]\n\n  createdAt DateTime @default(now()) @map("created_at")\n  updatedAt DateTime @updatedAt @map("updated_at")\n\n  @@map("users")\n}\n\nmodel Task {\n  id          String   @id @default(uuid(7))\n  title       String\n  description String?\n  priority    PRIORITY\n  completed   Boolean  @default(false)\n\n  deadline DateTime\n\n  projectId String  @map("project_id")\n  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade, onUpdate: NoAction)\n\n  taskUser TaskUser[]\n\n  @@map("tasks")\n}\n\nmodel TaskUser {\n  id String @id @unique @default(uuid(7))\n\n  userId String @map("user_id")\n  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)\n\n  taskId String @map("task_id")\n  task   Task   @relation(fields: [taskId], references: [id], onDelete: Cascade, onUpdate: NoAction)\n\n  assignedAt DateTime @default(now()) @map("assigned_at")\n\n  @@map("task_user")\n}\n',
-  runtimeDataModel: {
-    models: {},
-    enums: {},
-    types: {},
-  },
-  parameterizationSchema: {
-    strings: [],
-    graph: '',
-  },
-}
+	previewFeatures: [],
+	clientVersion: "7.9.1",
+	engineVersion: "e922089b7d7502aff4249d5da3420f6fa55fc6ad",
+	activeProvider: "postgresql",
+	inlineSchema:
+		'// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Get a free hosted Postgres database in seconds: `npx create-db`\n\ngenerator client {\n  provider = "prisma-client"\n  output   = "../src/@types/prisma"\n}\n\ndatasource db {\n  provider = "postgresql"\n}\n\nenum USER_ROLE {\n  ADMIN\n  USER\n}\n\nenum STATUS {\n  ACTIVE\n  COMPLETED\n  CANCELLED\n}\n\nenum PRIORITY {\n  LOW\n  MEDIUM\n  HIGH\n}\n\nmodel Project {\n  id          String  @id @default(uuid(7))\n  name        String\n  description String?\n  status      STATUS  @default(ACTIVE)\n\n  tasks Task[]\n\n  createdAt DateTime @default(now()) @map("created_at")\n  updatedAt DateTime @updatedAt @map("updated_at")\n\n  @@map("projects")\n}\n\nmodel User {\n  id       String    @id @default(uuid(7))\n  name     String\n  email    String    @unique\n  password String\n  role     USER_ROLE @default(USER)\n\n  taskUser TaskUser[]\n\n  createdAt DateTime @default(now()) @map("created_at")\n  updatedAt DateTime @updatedAt @map("updated_at")\n\n  @@map("users")\n}\n\nmodel Task {\n  id          String   @id @default(uuid(7))\n  title       String\n  description String?\n  priority    PRIORITY\n  completed   Boolean  @default(false)\n\n  deadline DateTime\n\n  projectId String  @map("project_id")\n  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade, onUpdate: NoAction)\n\n  taskUser TaskUser[]\n\n  @@map("tasks")\n}\n\nmodel TaskUser {\n  id String @id @unique @default(uuid(7))\n\n  userId String @map("user_id")\n  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)\n\n  taskId String @map("task_id")\n  task   Task   @relation(fields: [taskId], references: [id], onDelete: Cascade, onUpdate: NoAction)\n\n  assignedAt DateTime @default(now()) @map("assigned_at")\n\n  @@map("task_user")\n}\n',
+	runtimeDataModel: {
+		models: {},
+		enums: {},
+		types: {},
+	},
+	parameterizationSchema: {
+		strings: [],
+		graph: "",
+	},
+};
 
 config.runtimeDataModel = JSON.parse(
-  '{"models":{"Project":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"STATUS"},{"name":"tasks","kind":"object","type":"Task","relationName":"ProjectToTask"},{"name":"createdAt","kind":"scalar","type":"DateTime","dbName":"created_at"},{"name":"updatedAt","kind":"scalar","type":"DateTime","dbName":"updated_at"}],"dbName":"projects"},"User":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"password","kind":"scalar","type":"String"},{"name":"role","kind":"enum","type":"USER_ROLE"},{"name":"taskUser","kind":"object","type":"TaskUser","relationName":"TaskUserToUser"},{"name":"createdAt","kind":"scalar","type":"DateTime","dbName":"created_at"},{"name":"updatedAt","kind":"scalar","type":"DateTime","dbName":"updated_at"}],"dbName":"users"},"Task":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"priority","kind":"enum","type":"PRIORITY"},{"name":"completed","kind":"scalar","type":"Boolean"},{"name":"deadline","kind":"scalar","type":"DateTime"},{"name":"projectId","kind":"scalar","type":"String","dbName":"project_id"},{"name":"project","kind":"object","type":"Project","relationName":"ProjectToTask"},{"name":"taskUser","kind":"object","type":"TaskUser","relationName":"TaskToTaskUser"}],"dbName":"tasks"},"TaskUser":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String","dbName":"user_id"},{"name":"user","kind":"object","type":"User","relationName":"TaskUserToUser"},{"name":"taskId","kind":"scalar","type":"String","dbName":"task_id"},{"name":"task","kind":"object","type":"Task","relationName":"TaskToTaskUser"},{"name":"assignedAt","kind":"scalar","type":"DateTime","dbName":"assigned_at"}],"dbName":"task_user"}},"enums":{},"types":{}}',
-)
+	'{"models":{"Project":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"status","kind":"enum","type":"STATUS"},{"name":"tasks","kind":"object","type":"Task","relationName":"ProjectToTask"},{"name":"createdAt","kind":"scalar","type":"DateTime","dbName":"created_at"},{"name":"updatedAt","kind":"scalar","type":"DateTime","dbName":"updated_at"}],"dbName":"projects"},"User":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"name","kind":"scalar","type":"String"},{"name":"email","kind":"scalar","type":"String"},{"name":"password","kind":"scalar","type":"String"},{"name":"role","kind":"enum","type":"USER_ROLE"},{"name":"taskUser","kind":"object","type":"TaskUser","relationName":"TaskUserToUser"},{"name":"createdAt","kind":"scalar","type":"DateTime","dbName":"created_at"},{"name":"updatedAt","kind":"scalar","type":"DateTime","dbName":"updated_at"}],"dbName":"users"},"Task":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"title","kind":"scalar","type":"String"},{"name":"description","kind":"scalar","type":"String"},{"name":"priority","kind":"enum","type":"PRIORITY"},{"name":"completed","kind":"scalar","type":"Boolean"},{"name":"deadline","kind":"scalar","type":"DateTime"},{"name":"projectId","kind":"scalar","type":"String","dbName":"project_id"},{"name":"project","kind":"object","type":"Project","relationName":"ProjectToTask"},{"name":"taskUser","kind":"object","type":"TaskUser","relationName":"TaskToTaskUser"}],"dbName":"tasks"},"TaskUser":{"fields":[{"name":"id","kind":"scalar","type":"String"},{"name":"userId","kind":"scalar","type":"String","dbName":"user_id"},{"name":"user","kind":"object","type":"User","relationName":"TaskUserToUser"},{"name":"taskId","kind":"scalar","type":"String","dbName":"task_id"},{"name":"task","kind":"object","type":"Task","relationName":"TaskToTaskUser"},{"name":"assignedAt","kind":"scalar","type":"DateTime","dbName":"assigned_at"}],"dbName":"task_user"}},"enums":{},"types":{}}',
+);
 config.parameterizationSchema = {
-  strings: JSON.parse(
-    '["where","orderBy","cursor","project","taskUser","_count","user","task","tasks","Project.findUnique","Project.findUniqueOrThrow","Project.findFirst","Project.findFirstOrThrow","Project.findMany","data","Project.createOne","Project.createMany","Project.createManyAndReturn","Project.updateOne","Project.updateMany","Project.updateManyAndReturn","create","update","Project.upsertOne","Project.deleteOne","Project.deleteMany","having","_min","_max","Project.groupBy","Project.aggregate","User.findUnique","User.findUniqueOrThrow","User.findFirst","User.findFirstOrThrow","User.findMany","User.createOne","User.createMany","User.createManyAndReturn","User.updateOne","User.updateMany","User.updateManyAndReturn","User.upsertOne","User.deleteOne","User.deleteMany","User.groupBy","User.aggregate","Task.findUnique","Task.findUniqueOrThrow","Task.findFirst","Task.findFirstOrThrow","Task.findMany","Task.createOne","Task.createMany","Task.createManyAndReturn","Task.updateOne","Task.updateMany","Task.updateManyAndReturn","Task.upsertOne","Task.deleteOne","Task.deleteMany","Task.groupBy","Task.aggregate","TaskUser.findUnique","TaskUser.findUniqueOrThrow","TaskUser.findFirst","TaskUser.findFirstOrThrow","TaskUser.findMany","TaskUser.createOne","TaskUser.createMany","TaskUser.createManyAndReturn","TaskUser.updateOne","TaskUser.updateMany","TaskUser.updateManyAndReturn","TaskUser.upsertOne","TaskUser.deleteOne","TaskUser.deleteMany","TaskUser.groupBy","TaskUser.aggregate","AND","OR","NOT","id","userId","taskId","assignedAt","equals","in","notIn","lt","lte","gt","gte","not","contains","startsWith","endsWith","title","description","PRIORITY","priority","completed","deadline","projectId","name","email","password","USER_ROLE","role","createdAt","updatedAt","every","some","none","STATUS","status","is","isNot","connectOrCreate","upsert","createMany","set","disconnect","delete","connect","updateMany","deleteMany"]',
-  ),
-  graph:
-    '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-VB0_VQNAVgNBVwNCWANDWQNEWwNFXQhGXh5HYANIYghJYx9KZANLZQNMZghNaSBOaiQ',
-}
+	strings: JSON.parse(
+		'["where","orderBy","cursor","project","taskUser","_count","user","task","tasks","Project.findUnique","Project.findUniqueOrThrow","Project.findFirst","Project.findFirstOrThrow","Project.findMany","data","Project.createOne","Project.createMany","Project.createManyAndReturn","Project.updateOne","Project.updateMany","Project.updateManyAndReturn","create","update","Project.upsertOne","Project.deleteOne","Project.deleteMany","having","_min","_max","Project.groupBy","Project.aggregate","User.findUnique","User.findUniqueOrThrow","User.findFirst","User.findFirstOrThrow","User.findMany","User.createOne","User.createMany","User.createManyAndReturn","User.updateOne","User.updateMany","User.updateManyAndReturn","User.upsertOne","User.deleteOne","User.deleteMany","User.groupBy","User.aggregate","Task.findUnique","Task.findUniqueOrThrow","Task.findFirst","Task.findFirstOrThrow","Task.findMany","Task.createOne","Task.createMany","Task.createManyAndReturn","Task.updateOne","Task.updateMany","Task.updateManyAndReturn","Task.upsertOne","Task.deleteOne","Task.deleteMany","Task.groupBy","Task.aggregate","TaskUser.findUnique","TaskUser.findUniqueOrThrow","TaskUser.findFirst","TaskUser.findFirstOrThrow","TaskUser.findMany","TaskUser.createOne","TaskUser.createMany","TaskUser.createManyAndReturn","TaskUser.updateOne","TaskUser.updateMany","TaskUser.updateManyAndReturn","TaskUser.upsertOne","TaskUser.deleteOne","TaskUser.deleteMany","TaskUser.groupBy","TaskUser.aggregate","AND","OR","NOT","id","userId","taskId","assignedAt","equals","in","notIn","lt","lte","gt","gte","not","contains","startsWith","endsWith","title","description","PRIORITY","priority","completed","deadline","projectId","name","email","password","USER_ROLE","role","createdAt","updatedAt","every","some","none","STATUS","status","is","isNot","connectOrCreate","upsert","createMany","set","disconnect","delete","connect","updateMany","deleteMany"]',
+	),
+	graph:
+		"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-VB0_VQNAVgNBVwNCWANDWQNEWwNFXQhGXh5HYANIYghJYx9KZANLZQNMZghNaSBOaiQ",
+};
 
 async function decodeBase64AsWasm(
-  wasmBase64: string,
+	wasmBase64: string,
 ): Promise<WebAssembly.Module> {
-  const { Buffer } = await import('node:buffer')
-  const wasmArray = Buffer.from(wasmBase64, 'base64')
-  return new WebAssembly.Module(wasmArray)
+	const { Buffer } = await import("node:buffer");
+	const wasmArray = Buffer.from(wasmBase64, "base64");
+	return new WebAssembly.Module(wasmArray);
 }
 
 config.compilerWasm = {
-  getRuntime: async () =>
-    await import('@prisma/client/runtime/query_compiler_fast_bg.postgresql.mjs'),
+	getRuntime: async () =>
+		await import(
+			"@prisma/client/runtime/query_compiler_fast_bg.postgresql.mjs"
+		),
 
-  getQueryCompilerWasmModule: async () => {
-    const { wasm } =
-      await import('@prisma/client/runtime/query_compiler_fast_bg.postgresql.wasm-base64.mjs')
-    return await decodeBase64AsWasm(wasm)
-  },
+	getQueryCompilerWasmModule: async () => {
+		const { wasm } = await import(
+			"@prisma/client/runtime/query_compiler_fast_bg.postgresql.wasm-base64.mjs"
+		);
+		return await decodeBase64AsWasm(wasm);
+	},
 
-  importName: './query_compiler_fast_bg.js',
-}
+	importName: "./query_compiler_fast_bg.js",
+};
 
 export type LogOptions<ClientOptions extends Prisma.PrismaClientOptions> =
-  'log' extends keyof ClientOptions
-    ? ClientOptions['log'] extends Array<Prisma.LogLevel | Prisma.LogDefinition>
-      ? Prisma.GetEvents<ClientOptions['log']>
-      : never
-    : never
+	"log" extends keyof ClientOptions
+		? ClientOptions["log"] extends Array<Prisma.LogLevel | Prisma.LogDefinition>
+			? Prisma.GetEvents<ClientOptions["log"]>
+			: never
+		: never;
 
 export interface PrismaClientConstructor {
-  /**
-   * ## Prisma Client
-   *
-   * Type-safe database client for TypeScript
-   * @example
-   * ```
-   * const prisma = new PrismaClient({
-   *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
-   * })
-   * // Fetch zero or more Projects
-   * const projects = await prisma.project.findMany()
-   * ```
-   *
-   * Read more in our [docs](https://pris.ly/d/client).
-   */
+	/**
+	 * ## Prisma Client
+	 *
+	 * Type-safe database client for TypeScript
+	 * @example
+	 * ```
+	 * const prisma = new PrismaClient({
+	 *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
+	 * })
+	 * // Fetch zero or more Projects
+	 * const projects = await prisma.project.findMany()
+	 * ```
+	 *
+	 * Read more in our [docs](https://pris.ly/d/client).
+	 */
 
-  new <
-    Options extends Prisma.PrismaClientOptions = Prisma.PrismaClientOptions,
-    LogOpts extends LogOptions<Options> = LogOptions<Options>,
-    OmitOpts extends Prisma.PrismaClientOptions['omit'] = Options extends {
-      omit: infer U
-    }
-      ? U
-      : Prisma.PrismaClientOptions['omit'],
-    ExtArgs extends runtime.Types.Extensions.InternalArgs =
-      runtime.Types.Extensions.DefaultArgs,
-  >(
-    options: Prisma.PrismaClientConstructorArgs<Options>,
-  ): PrismaClient<LogOpts, OmitOpts, ExtArgs>
+	new <
+		Options extends Prisma.PrismaClientOptions = Prisma.PrismaClientOptions,
+		LogOpts extends LogOptions<Options> = LogOptions<Options>,
+		OmitOpts extends Prisma.PrismaClientOptions["omit"] = Options extends {
+			omit: infer U;
+		}
+			? U
+			: Prisma.PrismaClientOptions["omit"],
+		ExtArgs extends
+			runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+	>(
+		options: Prisma.PrismaClientConstructorArgs<Options>,
+	): PrismaClient<LogOpts, OmitOpts, ExtArgs>;
 }
 
 /**
@@ -119,175 +122,175 @@ export interface PrismaClientConstructor {
  */
 
 export interface PrismaClient<
-  in LogOpts extends Prisma.LogLevel = never,
-  in out OmitOpts extends Prisma.PrismaClientOptions['omit'] =
-    Prisma.PrismaClientOptions['omit'],
-  in out ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	in LogOpts extends Prisma.LogLevel = never,
+	in out OmitOpts extends
+		Prisma.PrismaClientOptions["omit"] = Prisma.PrismaClientOptions["omit"],
+	in out ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['other'] }
+	[K: symbol]: { types: Prisma.TypeMap<ExtArgs>["other"] };
 
-  $on<V extends LogOpts>(
-    eventType: V,
-    callback: (
-      event: V extends 'query' ? Prisma.QueryEvent : Prisma.LogEvent,
-    ) => void,
-  ): PrismaClient
+	$on<V extends LogOpts>(
+		eventType: V,
+		callback: (
+			event: V extends "query" ? Prisma.QueryEvent : Prisma.LogEvent,
+		) => void,
+	): PrismaClient;
 
-  /**
-   * Connect with the database
-   */
-  $connect(): runtime.Types.Utils.JsPromise<void>
+	/**
+	 * Connect with the database
+	 */
+	$connect(): runtime.Types.Utils.JsPromise<void>;
 
-  /**
-   * Disconnect from the database
-   */
-  $disconnect(): runtime.Types.Utils.JsPromise<void>
+	/**
+	 * Disconnect from the database
+	 */
+	$disconnect(): runtime.Types.Utils.JsPromise<void>;
 
-  /**
-   * Executes a prepared raw query and returns the number of affected rows.
-   * @example
-   * ```
-   * const result = await prisma.$executeRaw`UPDATE User SET cool = ${true} WHERE email = ${'user@email.com'};`
-   * ```
-   *
-   * Read more in our [docs](https://pris.ly/d/raw-queries).
-   */
-  $executeRaw<T = unknown>(
-    query: TemplateStringsArray | Prisma.Sql,
-    ...values: any[]
-  ): Prisma.PrismaPromise<number>
+	/**
+	 * Executes a prepared raw query and returns the number of affected rows.
+	 * @example
+	 * ```
+	 * const result = await prisma.$executeRaw`UPDATE User SET cool = ${true} WHERE email = ${'user@email.com'};`
+	 * ```
+	 *
+	 * Read more in our [docs](https://pris.ly/d/raw-queries).
+	 */
+	$executeRaw<T = unknown>(
+		query: TemplateStringsArray | Prisma.Sql,
+		...values: any[]
+	): Prisma.PrismaPromise<number>;
 
-  /**
-   * Executes a raw query and returns the number of affected rows.
-   * Susceptible to SQL injections, see documentation.
-   * @example
-   * ```
-   * const result = await prisma.$executeRawUnsafe('UPDATE User SET cool = $1 WHERE email = $2 ;', true, 'user@email.com')
-   * ```
-   *
-   * Read more in our [docs](https://pris.ly/d/raw-queries).
-   */
-  $executeRawUnsafe<T = unknown>(
-    query: string,
-    ...values: any[]
-  ): Prisma.PrismaPromise<number>
+	/**
+	 * Executes a raw query and returns the number of affected rows.
+	 * Susceptible to SQL injections, see documentation.
+	 * @example
+	 * ```
+	 * const result = await prisma.$executeRawUnsafe('UPDATE User SET cool = $1 WHERE email = $2 ;', true, 'user@email.com')
+	 * ```
+	 *
+	 * Read more in our [docs](https://pris.ly/d/raw-queries).
+	 */
+	$executeRawUnsafe<T = unknown>(
+		query: string,
+		...values: any[]
+	): Prisma.PrismaPromise<number>;
 
-  /**
-   * Performs a prepared raw query and returns the `SELECT` data.
-   * @example
-   * ```
-   * const result = await prisma.$queryRaw`SELECT * FROM User WHERE id = ${1} OR email = ${'user@email.com'};`
-   * ```
-   *
-   * Read more in our [docs](https://pris.ly/d/raw-queries).
-   */
-  $queryRaw<T = unknown>(
-    query: TemplateStringsArray | Prisma.Sql,
-    ...values: any[]
-  ): Prisma.PrismaPromise<T>
+	/**
+	 * Performs a prepared raw query and returns the `SELECT` data.
+	 * @example
+	 * ```
+	 * const result = await prisma.$queryRaw`SELECT * FROM User WHERE id = ${1} OR email = ${'user@email.com'};`
+	 * ```
+	 *
+	 * Read more in our [docs](https://pris.ly/d/raw-queries).
+	 */
+	$queryRaw<T = unknown>(
+		query: TemplateStringsArray | Prisma.Sql,
+		...values: any[]
+	): Prisma.PrismaPromise<T>;
 
-  /**
-   * Performs a raw query and returns the `SELECT` data.
-   * Susceptible to SQL injections, see documentation.
-   * @example
-   * ```
-   * const result = await prisma.$queryRawUnsafe('SELECT * FROM User WHERE id = $1 OR email = $2;', 1, 'user@email.com')
-   * ```
-   *
-   * Read more in our [docs](https://pris.ly/d/raw-queries).
-   */
-  $queryRawUnsafe<T = unknown>(
-    query: string,
-    ...values: any[]
-  ): Prisma.PrismaPromise<T>
+	/**
+	 * Performs a raw query and returns the `SELECT` data.
+	 * Susceptible to SQL injections, see documentation.
+	 * @example
+	 * ```
+	 * const result = await prisma.$queryRawUnsafe('SELECT * FROM User WHERE id = $1 OR email = $2;', 1, 'user@email.com')
+	 * ```
+	 *
+	 * Read more in our [docs](https://pris.ly/d/raw-queries).
+	 */
+	$queryRawUnsafe<T = unknown>(
+		query: string,
+		...values: any[]
+	): Prisma.PrismaPromise<T>;
 
-  /**
-   * Allows the running of a sequence of read/write operations that are guaranteed to either succeed or fail as a whole.
-   * @example
-   * ```
-   * const [george, bob, alice] = await prisma.$transaction([
-   *   prisma.user.create({ data: { name: 'George' } }),
-   *   prisma.user.create({ data: { name: 'Bob' } }),
-   *   prisma.user.create({ data: { name: 'Alice' } }),
-   * ])
-   * ```
-   *
-   * Read more in our [docs](https://www.prisma.io/docs/orm/prisma-client/queries/transactions).
-   */
-  $transaction<P extends Prisma.PrismaPromise<any>[]>(
-    arg: [...P],
-    options?: {
-      maxWait?: number
-      timeout?: number
-      isolationLevel?: Prisma.TransactionIsolationLevel
-    },
-  ): runtime.Types.Utils.JsPromise<runtime.Types.Utils.UnwrapTuple<P>>
+	/**
+	 * Allows the running of a sequence of read/write operations that are guaranteed to either succeed or fail as a whole.
+	 * @example
+	 * ```
+	 * const [george, bob, alice] = await prisma.$transaction([
+	 *   prisma.user.create({ data: { name: 'George' } }),
+	 *   prisma.user.create({ data: { name: 'Bob' } }),
+	 *   prisma.user.create({ data: { name: 'Alice' } }),
+	 * ])
+	 * ```
+	 *
+	 * Read more in our [docs](https://www.prisma.io/docs/orm/prisma-client/queries/transactions).
+	 */
+	$transaction<P extends Prisma.PrismaPromise<any>[]>(
+		arg: [...P],
+		options?: {
+			maxWait?: number;
+			timeout?: number;
+			isolationLevel?: Prisma.TransactionIsolationLevel;
+		},
+	): runtime.Types.Utils.JsPromise<runtime.Types.Utils.UnwrapTuple<P>>;
 
-  $transaction<R>(
-    fn: (
-      prisma: Omit<PrismaClient, runtime.ITXClientDenyList>,
-    ) => runtime.Types.Utils.JsPromise<R>,
-    options?: {
-      maxWait?: number
-      timeout?: number
-      isolationLevel?: Prisma.TransactionIsolationLevel
-    },
-  ): runtime.Types.Utils.JsPromise<R>
+	$transaction<R>(
+		fn: (
+			prisma: Omit<PrismaClient, runtime.ITXClientDenyList>,
+		) => runtime.Types.Utils.JsPromise<R>,
+		options?: {
+			maxWait?: number;
+			timeout?: number;
+			isolationLevel?: Prisma.TransactionIsolationLevel;
+		},
+	): runtime.Types.Utils.JsPromise<R>;
 
-  $extends: runtime.Types.Extensions.ExtendsHook<
-    'extends',
-    Prisma.TypeMapCb<OmitOpts>,
-    ExtArgs,
-    runtime.Types.Utils.Call<
-      Prisma.TypeMapCb<OmitOpts>,
-      {
-        extArgs: ExtArgs
-      }
-    >
-  >
+	$extends: runtime.Types.Extensions.ExtendsHook<
+		"extends",
+		Prisma.TypeMapCb<OmitOpts>,
+		ExtArgs,
+		runtime.Types.Utils.Call<
+			Prisma.TypeMapCb<OmitOpts>,
+			{
+				extArgs: ExtArgs;
+			}
+		>
+	>;
 
-  /**
-   * `prisma.project`: Exposes CRUD operations for the **Project** model.
-   * Example usage:
-   * ```ts
-   * // Fetch zero or more Projects
-   * const projects = await prisma.project.findMany()
-   * ```
-   */
-  get project(): Prisma.ProjectDelegate<ExtArgs, { omit: OmitOpts }>
+	/**
+	 * `prisma.project`: Exposes CRUD operations for the **Project** model.
+	 * Example usage:
+	 * ```ts
+	 * // Fetch zero or more Projects
+	 * const projects = await prisma.project.findMany()
+	 * ```
+	 */
+	get project(): Prisma.ProjectDelegate<ExtArgs, { omit: OmitOpts }>;
 
-  /**
-   * `prisma.user`: Exposes CRUD operations for the **User** model.
-   * Example usage:
-   * ```ts
-   * // Fetch zero or more Users
-   * const users = await prisma.user.findMany()
-   * ```
-   */
-  get user(): Prisma.UserDelegate<ExtArgs, { omit: OmitOpts }>
+	/**
+	 * `prisma.user`: Exposes CRUD operations for the **User** model.
+	 * Example usage:
+	 * ```ts
+	 * // Fetch zero or more Users
+	 * const users = await prisma.user.findMany()
+	 * ```
+	 */
+	get user(): Prisma.UserDelegate<ExtArgs, { omit: OmitOpts }>;
 
-  /**
-   * `prisma.task`: Exposes CRUD operations for the **Task** model.
-   * Example usage:
-   * ```ts
-   * // Fetch zero or more Tasks
-   * const tasks = await prisma.task.findMany()
-   * ```
-   */
-  get task(): Prisma.TaskDelegate<ExtArgs, { omit: OmitOpts }>
+	/**
+	 * `prisma.task`: Exposes CRUD operations for the **Task** model.
+	 * Example usage:
+	 * ```ts
+	 * // Fetch zero or more Tasks
+	 * const tasks = await prisma.task.findMany()
+	 * ```
+	 */
+	get task(): Prisma.TaskDelegate<ExtArgs, { omit: OmitOpts }>;
 
-  /**
-   * `prisma.taskUser`: Exposes CRUD operations for the **TaskUser** model.
-   * Example usage:
-   * ```ts
-   * // Fetch zero or more TaskUsers
-   * const taskUsers = await prisma.taskUser.findMany()
-   * ```
-   */
-  get taskUser(): Prisma.TaskUserDelegate<ExtArgs, { omit: OmitOpts }>
+	/**
+	 * `prisma.taskUser`: Exposes CRUD operations for the **TaskUser** model.
+	 * Example usage:
+	 * ```ts
+	 * // Fetch zero or more TaskUsers
+	 * const taskUsers = await prisma.taskUser.findMany()
+	 * ```
+	 */
+	get taskUser(): Prisma.TaskUserDelegate<ExtArgs, { omit: OmitOpts }>;
 }
 
 export function getPrismaClientClass(): PrismaClientConstructor {
-  return runtime.getPrismaClient(config) as unknown as PrismaClientConstructor
+	return runtime.getPrismaClient(config) as unknown as PrismaClientConstructor;
 }

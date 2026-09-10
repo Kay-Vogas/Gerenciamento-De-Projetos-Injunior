@@ -1,19 +1,19 @@
-import type { TasksRepository } from '@/repositories/tasks-repository.js'
+import type { TasksRepository } from "@/repositories/tasks-repository.js";
 
 interface TaskDeleteUseCaseRequest {
-  id: string
+	id: string;
 }
 
 export class TaskDeleteUseCase {
-  constructor(private tasksRepository: TasksRepository) {}
+	constructor(private tasksRepository: TasksRepository) {}
 
-  async execute({ id }: TaskDeleteUseCaseRequest): Promise<void> {
-    const taskExists = await this.tasksRepository.findById(id)
+	async execute({ id }: TaskDeleteUseCaseRequest): Promise<void> {
+		const taskExists = await this.tasksRepository.findById(id);
 
-    if (!taskExists) {
-      throw new Error('Tarefa não encontrada')
-    }
+		if (!taskExists) {
+			throw new Error("Tarefa não encontrada");
+		}
 
-    await this.tasksRepository.delete(id)
-  }
+		await this.tasksRepository.delete(id);
+	}
 }

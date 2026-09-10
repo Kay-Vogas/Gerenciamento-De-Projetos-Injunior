@@ -9,18 +9,19 @@
  * 🟢 You can import this file directly.
  */
 
-import * as process from 'node:process'
-import * as path from 'node:path'
-import { fileURLToPath } from 'node:url'
-globalThis['__dirname'] = path.dirname(fileURLToPath(import.meta.url))
+import * as path from "node:path";
+import * as process from "node:process";
+import { fileURLToPath } from "node:url";
 
-import * as runtime from '@prisma/client/runtime/client'
-import * as $Enums from './enums.js'
-import * as $Class from './internal/class.js'
-import * as Prisma from './internal/prismaNamespace.js'
+globalThis["__dirname"] = path.dirname(fileURLToPath(import.meta.url));
 
-export * as $Enums from './enums.js'
-export * from './enums.js'
+import * as runtime from "@prisma/client/runtime/client";
+import * as $Enums from "./enums.js";
+import * as $Class from "./internal/class.js";
+import * as Prisma from "./internal/prismaNamespace.js";
+
+export * as $Enums from "./enums.js";
+export * from "./enums.js";
 /**
  * ## Prisma Client
  *
@@ -36,33 +37,33 @@ export * from './enums.js'
  *
  * Read more in our [docs](https://pris.ly/d/client).
  */
-export const PrismaClient = $Class.getPrismaClientClass()
+export const PrismaClient = $Class.getPrismaClientClass();
 export type PrismaClient<
-  LogOpts extends Prisma.LogLevel = never,
-  OmitOpts extends Prisma.PrismaClientOptions['omit'] =
-    Prisma.PrismaClientOptions['omit'],
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
-> = $Class.PrismaClient<LogOpts, OmitOpts, ExtArgs>
-export { Prisma }
+	LogOpts extends Prisma.LogLevel = never,
+	OmitOpts extends
+		Prisma.PrismaClientOptions["omit"] = Prisma.PrismaClientOptions["omit"],
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = $Class.PrismaClient<LogOpts, OmitOpts, ExtArgs>;
+export { Prisma };
 
 /**
  * Model Project
  *
  */
-export type Project = Prisma.ProjectModel
+export type Project = Prisma.ProjectModel;
 /**
  * Model User
  *
  */
-export type User = Prisma.UserModel
+export type User = Prisma.UserModel;
 /**
  * Model Task
  *
  */
-export type Task = Prisma.TaskModel
+export type Task = Prisma.TaskModel;
 /**
  * Model TaskUser
  *
  */
-export type TaskUser = Prisma.TaskUserModel
+export type TaskUser = Prisma.TaskUserModel;

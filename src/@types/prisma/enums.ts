@@ -9,24 +9,24 @@
  */
 
 export const USER_ROLE = {
-  ADMIN: 'ADMIN',
-  USER: 'USER',
-} as const
+	ADMIN: "ADMIN",
+	USER: "USER",
+} as const;
 
-export type USER_ROLE = (typeof USER_ROLE)[keyof typeof USER_ROLE]
+export type USER_ROLE = (typeof USER_ROLE)[keyof typeof USER_ROLE];
 
 export const STATUS = {
-  ACTIVE: 'ACTIVE',
-  COMPLETED: 'COMPLETED',
-  CANCELLED: 'CANCELLED',
-} as const
+	ACTIVE: "ACTIVE",
+	COMPLETED: "COMPLETED",
+	CANCELLED: "CANCELLED",
+} as const;
 
-export type STATUS = (typeof STATUS)[keyof typeof STATUS]
+export type STATUS = (typeof STATUS)[keyof typeof STATUS];
 
 export const PRIORITY = {
-  LOW: 'LOW',
-  MEDIUM: 'MEDIUM',
-  HIGH: 'HIGH',
-} as const
+	LOW: "LOW",
+	MEDIUM: "MEDIUM",
+	HIGH: "HIGH",
+} as const;
 
-export type PRIORITY = (typeof PRIORITY)[keyof typeof PRIORITY]
+export type PRIORITY = (typeof PRIORITY)[keyof typeof PRIORITY];

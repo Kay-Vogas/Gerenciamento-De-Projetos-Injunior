@@ -7,1283 +7,1293 @@
  *
  * 🟢 You can import this file directly.
  */
-import type * as runtime from '@prisma/client/runtime/client'
-import type * as $Enums from '../enums.js'
-import type * as Prisma from '../internal/prismaNamespace.js'
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as $Enums from "../enums.js";
+import type * as Prisma from "../internal/prismaNamespace.js";
 
 /**
  * Model TaskUser
  *
  */
 export type TaskUserModel =
-  runtime.Types.Result.DefaultSelection<Prisma.$TaskUserPayload>
+	runtime.Types.Result.DefaultSelection<Prisma.$TaskUserPayload>;
 
 export type AggregateTaskUser = {
-  _count: TaskUserCountAggregateOutputType | null
-  _min: TaskUserMinAggregateOutputType | null
-  _max: TaskUserMaxAggregateOutputType | null
-}
+	_count: TaskUserCountAggregateOutputType | null;
+	_min: TaskUserMinAggregateOutputType | null;
+	_max: TaskUserMaxAggregateOutputType | null;
+};
 
 export type TaskUserMinAggregateOutputType = {
-  id: string | null
-  userId: string | null
-  taskId: string | null
-  assignedAt: Date | null
-}
+	id: string | null;
+	userId: string | null;
+	taskId: string | null;
+	assignedAt: Date | null;
+};
 
 export type TaskUserMaxAggregateOutputType = {
-  id: string | null
-  userId: string | null
-  taskId: string | null
-  assignedAt: Date | null
-}
+	id: string | null;
+	userId: string | null;
+	taskId: string | null;
+	assignedAt: Date | null;
+};
 
 export type TaskUserCountAggregateOutputType = {
-  id: number
-  userId: number
-  taskId: number
-  assignedAt: number
-  _all: number
-}
+	id: number;
+	userId: number;
+	taskId: number;
+	assignedAt: number;
+	_all: number;
+};
 
 export type TaskUserMinAggregateInputType = {
-  id?: true
-  userId?: true
-  taskId?: true
-  assignedAt?: true
-}
+	id?: true;
+	userId?: true;
+	taskId?: true;
+	assignedAt?: true;
+};
 
 export type TaskUserMaxAggregateInputType = {
-  id?: true
-  userId?: true
-  taskId?: true
-  assignedAt?: true
-}
+	id?: true;
+	userId?: true;
+	taskId?: true;
+	assignedAt?: true;
+};
 
 export type TaskUserCountAggregateInputType = {
-  id?: true
-  userId?: true
-  taskId?: true
-  assignedAt?: true
-  _all?: true
-}
+	id?: true;
+	userId?: true;
+	taskId?: true;
+	assignedAt?: true;
+	_all?: true;
+};
 
 export type TaskUserAggregateArgs<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  /**
-   * Filter which TaskUser to aggregate.
-   */
-  where?: Prisma.TaskUserWhereInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-   *
-   * Determine the order of TaskUsers to fetch.
-   */
-  orderBy?:
-    | Prisma.TaskUserOrderByWithRelationInput
-    | Prisma.TaskUserOrderByWithRelationInput[]
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-   *
-   * Sets the start position
-   */
-  cursor?: Prisma.TaskUserWhereUniqueInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   *
-   * Take `±n` TaskUsers from the position of the cursor.
-   */
-  take?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   *
-   * Skip the first `n` TaskUsers.
-   */
-  skip?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   *
-   * Count returned TaskUsers
-   **/
-  _count?: true | TaskUserCountAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   *
-   * Select which fields to find the minimum value
-   **/
-  _min?: TaskUserMinAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   *
-   * Select which fields to find the maximum value
-   **/
-  _max?: TaskUserMaxAggregateInputType
-}
+	/**
+	 * Filter which TaskUser to aggregate.
+	 */
+	where?: Prisma.TaskUserWhereInput;
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+	 *
+	 * Determine the order of TaskUsers to fetch.
+	 */
+	orderBy?:
+		| Prisma.TaskUserOrderByWithRelationInput
+		| Prisma.TaskUserOrderByWithRelationInput[];
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+	 *
+	 * Sets the start position
+	 */
+	cursor?: Prisma.TaskUserWhereUniqueInput;
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+	 *
+	 * Take `±n` TaskUsers from the position of the cursor.
+	 */
+	take?: number;
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+	 *
+	 * Skip the first `n` TaskUsers.
+	 */
+	skip?: number;
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+	 *
+	 * Count returned TaskUsers
+	 **/
+	_count?: true | TaskUserCountAggregateInputType;
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+	 *
+	 * Select which fields to find the minimum value
+	 **/
+	_min?: TaskUserMinAggregateInputType;
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+	 *
+	 * Select which fields to find the maximum value
+	 **/
+	_max?: TaskUserMaxAggregateInputType;
+};
 
 export type GetTaskUserAggregateType<T extends TaskUserAggregateArgs> = {
-  [P in keyof T & keyof AggregateTaskUser]: P extends '_count' | 'count'
-    ? T[P] extends true
-      ? number
-      : Prisma.GetScalarType<T[P], AggregateTaskUser[P]>
-    : Prisma.GetScalarType<T[P], AggregateTaskUser[P]>
-}
+	[P in keyof T & keyof AggregateTaskUser]: P extends "_count" | "count"
+		? T[P] extends true
+			? number
+			: Prisma.GetScalarType<T[P], AggregateTaskUser[P]>
+		: Prisma.GetScalarType<T[P], AggregateTaskUser[P]>;
+};
 
 export type TaskUserGroupByArgs<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  where?: Prisma.TaskUserWhereInput
-  orderBy?:
-    | Prisma.TaskUserOrderByWithAggregationInput
-    | Prisma.TaskUserOrderByWithAggregationInput[]
-  by: Prisma.TaskUserScalarFieldEnum[] | Prisma.TaskUserScalarFieldEnum
-  having?: Prisma.TaskUserScalarWhereWithAggregatesInput
-  take?: number
-  skip?: number
-  _count?: TaskUserCountAggregateInputType | true
-  _min?: TaskUserMinAggregateInputType
-  _max?: TaskUserMaxAggregateInputType
-}
+	where?: Prisma.TaskUserWhereInput;
+	orderBy?:
+		| Prisma.TaskUserOrderByWithAggregationInput
+		| Prisma.TaskUserOrderByWithAggregationInput[];
+	by: Prisma.TaskUserScalarFieldEnum[] | Prisma.TaskUserScalarFieldEnum;
+	having?: Prisma.TaskUserScalarWhereWithAggregatesInput;
+	take?: number;
+	skip?: number;
+	_count?: TaskUserCountAggregateInputType | true;
+	_min?: TaskUserMinAggregateInputType;
+	_max?: TaskUserMaxAggregateInputType;
+};
 
 export type TaskUserGroupByOutputType = {
-  id: string
-  userId: string
-  taskId: string
-  assignedAt: Date
-  _count: TaskUserCountAggregateOutputType | null
-  _min: TaskUserMinAggregateOutputType | null
-  _max: TaskUserMaxAggregateOutputType | null
-}
+	id: string;
+	userId: string;
+	taskId: string;
+	assignedAt: Date;
+	_count: TaskUserCountAggregateOutputType | null;
+	_min: TaskUserMinAggregateOutputType | null;
+	_max: TaskUserMaxAggregateOutputType | null;
+};
 
 export type GetTaskUserGroupByPayload<T extends TaskUserGroupByArgs> =
-  Prisma.PrismaPromise<
-    Array<
-      Prisma.PickEnumerable<TaskUserGroupByOutputType, T['by']> & {
-        [P in keyof T & keyof TaskUserGroupByOutputType]: P extends '_count'
-          ? T[P] extends boolean
-            ? number
-            : Prisma.GetScalarType<T[P], TaskUserGroupByOutputType[P]>
-          : Prisma.GetScalarType<T[P], TaskUserGroupByOutputType[P]>
-      }
-    >
-  >
+	Prisma.PrismaPromise<
+		Array<
+			Prisma.PickEnumerable<TaskUserGroupByOutputType, T["by"]> & {
+				[P in keyof T & keyof TaskUserGroupByOutputType]: P extends "_count"
+					? T[P] extends boolean
+						? number
+						: Prisma.GetScalarType<T[P], TaskUserGroupByOutputType[P]>
+					: Prisma.GetScalarType<T[P], TaskUserGroupByOutputType[P]>;
+			}
+		>
+	>;
 
 export type TaskUserWhereInput = {
-  AND?: Prisma.TaskUserWhereInput | Prisma.TaskUserWhereInput[]
-  OR?: Prisma.TaskUserWhereInput[]
-  NOT?: Prisma.TaskUserWhereInput | Prisma.TaskUserWhereInput[]
-  id?: Prisma.StringFilter<'TaskUser'> | string
-  userId?: Prisma.StringFilter<'TaskUser'> | string
-  taskId?: Prisma.StringFilter<'TaskUser'> | string
-  assignedAt?: Prisma.DateTimeFilter<'TaskUser'> | Date | string
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  task?: Prisma.XOR<Prisma.TaskScalarRelationFilter, Prisma.TaskWhereInput>
-}
+	AND?: Prisma.TaskUserWhereInput | Prisma.TaskUserWhereInput[];
+	OR?: Prisma.TaskUserWhereInput[];
+	NOT?: Prisma.TaskUserWhereInput | Prisma.TaskUserWhereInput[];
+	id?: Prisma.StringFilter<"TaskUser"> | string;
+	userId?: Prisma.StringFilter<"TaskUser"> | string;
+	taskId?: Prisma.StringFilter<"TaskUser"> | string;
+	assignedAt?: Prisma.DateTimeFilter<"TaskUser"> | Date | string;
+	user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>;
+	task?: Prisma.XOR<Prisma.TaskScalarRelationFilter, Prisma.TaskWhereInput>;
+};
 
 export type TaskUserOrderByWithRelationInput = {
-  id?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  taskId?: Prisma.SortOrder
-  assignedAt?: Prisma.SortOrder
-  user?: Prisma.UserOrderByWithRelationInput
-  task?: Prisma.TaskOrderByWithRelationInput
-}
+	id?: Prisma.SortOrder;
+	userId?: Prisma.SortOrder;
+	taskId?: Prisma.SortOrder;
+	assignedAt?: Prisma.SortOrder;
+	user?: Prisma.UserOrderByWithRelationInput;
+	task?: Prisma.TaskOrderByWithRelationInput;
+};
 
 export type TaskUserWhereUniqueInput = Prisma.AtLeast<
-  {
-    id?: string
-    AND?: Prisma.TaskUserWhereInput | Prisma.TaskUserWhereInput[]
-    OR?: Prisma.TaskUserWhereInput[]
-    NOT?: Prisma.TaskUserWhereInput | Prisma.TaskUserWhereInput[]
-    userId?: Prisma.StringFilter<'TaskUser'> | string
-    taskId?: Prisma.StringFilter<'TaskUser'> | string
-    assignedAt?: Prisma.DateTimeFilter<'TaskUser'> | Date | string
-    user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-    task?: Prisma.XOR<Prisma.TaskScalarRelationFilter, Prisma.TaskWhereInput>
-  },
-  'id' | 'id'
->
+	{
+		id?: string;
+		AND?: Prisma.TaskUserWhereInput | Prisma.TaskUserWhereInput[];
+		OR?: Prisma.TaskUserWhereInput[];
+		NOT?: Prisma.TaskUserWhereInput | Prisma.TaskUserWhereInput[];
+		userId?: Prisma.StringFilter<"TaskUser"> | string;
+		taskId?: Prisma.StringFilter<"TaskUser"> | string;
+		assignedAt?: Prisma.DateTimeFilter<"TaskUser"> | Date | string;
+		user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>;
+		task?: Prisma.XOR<Prisma.TaskScalarRelationFilter, Prisma.TaskWhereInput>;
+	},
+	"id" | "id"
+>;
 
 export type TaskUserOrderByWithAggregationInput = {
-  id?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  taskId?: Prisma.SortOrder
-  assignedAt?: Prisma.SortOrder
-  _count?: Prisma.TaskUserCountOrderByAggregateInput
-  _max?: Prisma.TaskUserMaxOrderByAggregateInput
-  _min?: Prisma.TaskUserMinOrderByAggregateInput
-}
+	id?: Prisma.SortOrder;
+	userId?: Prisma.SortOrder;
+	taskId?: Prisma.SortOrder;
+	assignedAt?: Prisma.SortOrder;
+	_count?: Prisma.TaskUserCountOrderByAggregateInput;
+	_max?: Prisma.TaskUserMaxOrderByAggregateInput;
+	_min?: Prisma.TaskUserMinOrderByAggregateInput;
+};
 
 export type TaskUserScalarWhereWithAggregatesInput = {
-  AND?:
-    | Prisma.TaskUserScalarWhereWithAggregatesInput
-    | Prisma.TaskUserScalarWhereWithAggregatesInput[]
-  OR?: Prisma.TaskUserScalarWhereWithAggregatesInput[]
-  NOT?:
-    | Prisma.TaskUserScalarWhereWithAggregatesInput
-    | Prisma.TaskUserScalarWhereWithAggregatesInput[]
-  id?: Prisma.StringWithAggregatesFilter<'TaskUser'> | string
-  userId?: Prisma.StringWithAggregatesFilter<'TaskUser'> | string
-  taskId?: Prisma.StringWithAggregatesFilter<'TaskUser'> | string
-  assignedAt?: Prisma.DateTimeWithAggregatesFilter<'TaskUser'> | Date | string
-}
+	AND?:
+		| Prisma.TaskUserScalarWhereWithAggregatesInput
+		| Prisma.TaskUserScalarWhereWithAggregatesInput[];
+	OR?: Prisma.TaskUserScalarWhereWithAggregatesInput[];
+	NOT?:
+		| Prisma.TaskUserScalarWhereWithAggregatesInput
+		| Prisma.TaskUserScalarWhereWithAggregatesInput[];
+	id?: Prisma.StringWithAggregatesFilter<"TaskUser"> | string;
+	userId?: Prisma.StringWithAggregatesFilter<"TaskUser"> | string;
+	taskId?: Prisma.StringWithAggregatesFilter<"TaskUser"> | string;
+	assignedAt?: Prisma.DateTimeWithAggregatesFilter<"TaskUser"> | Date | string;
+};
 
 export type TaskUserCreateInput = {
-  id?: string
-  assignedAt?: Date | string
-  user: Prisma.UserCreateNestedOneWithoutTaskUserInput
-  task: Prisma.TaskCreateNestedOneWithoutTaskUserInput
-}
+	id?: string;
+	assignedAt?: Date | string;
+	user: Prisma.UserCreateNestedOneWithoutTaskUserInput;
+	task: Prisma.TaskCreateNestedOneWithoutTaskUserInput;
+};
 
 export type TaskUserUncheckedCreateInput = {
-  id?: string
-  userId: string
-  taskId: string
-  assignedAt?: Date | string
-}
+	id?: string;
+	userId: string;
+	taskId: string;
+	assignedAt?: Date | string;
+};
 
 export type TaskUserUpdateInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutTaskUserNestedInput
-  task?: Prisma.TaskUpdateOneRequiredWithoutTaskUserNestedInput
-}
+	id?: Prisma.StringFieldUpdateOperationsInput | string;
+	assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+	user?: Prisma.UserUpdateOneRequiredWithoutTaskUserNestedInput;
+	task?: Prisma.TaskUpdateOneRequiredWithoutTaskUserNestedInput;
+};
 
 export type TaskUserUncheckedUpdateInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-  taskId?: Prisma.StringFieldUpdateOperationsInput | string
-  assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
+	id?: Prisma.StringFieldUpdateOperationsInput | string;
+	userId?: Prisma.StringFieldUpdateOperationsInput | string;
+	taskId?: Prisma.StringFieldUpdateOperationsInput | string;
+	assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
 
 export type TaskUserCreateManyInput = {
-  id?: string
-  userId: string
-  taskId: string
-  assignedAt?: Date | string
-}
+	id?: string;
+	userId: string;
+	taskId: string;
+	assignedAt?: Date | string;
+};
 
 export type TaskUserUpdateManyMutationInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
+	id?: Prisma.StringFieldUpdateOperationsInput | string;
+	assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
 
 export type TaskUserUncheckedUpdateManyInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-  taskId?: Prisma.StringFieldUpdateOperationsInput | string
-  assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
+	id?: Prisma.StringFieldUpdateOperationsInput | string;
+	userId?: Prisma.StringFieldUpdateOperationsInput | string;
+	taskId?: Prisma.StringFieldUpdateOperationsInput | string;
+	assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
 
 export type TaskUserListRelationFilter = {
-  every?: Prisma.TaskUserWhereInput
-  some?: Prisma.TaskUserWhereInput
-  none?: Prisma.TaskUserWhereInput
-}
+	every?: Prisma.TaskUserWhereInput;
+	some?: Prisma.TaskUserWhereInput;
+	none?: Prisma.TaskUserWhereInput;
+};
 
 export type TaskUserOrderByRelationAggregateInput = {
-  _count?: Prisma.SortOrder
-}
+	_count?: Prisma.SortOrder;
+};
 
 export type TaskUserCountOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  taskId?: Prisma.SortOrder
-  assignedAt?: Prisma.SortOrder
-}
+	id?: Prisma.SortOrder;
+	userId?: Prisma.SortOrder;
+	taskId?: Prisma.SortOrder;
+	assignedAt?: Prisma.SortOrder;
+};
 
 export type TaskUserMaxOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  taskId?: Prisma.SortOrder
-  assignedAt?: Prisma.SortOrder
-}
+	id?: Prisma.SortOrder;
+	userId?: Prisma.SortOrder;
+	taskId?: Prisma.SortOrder;
+	assignedAt?: Prisma.SortOrder;
+};
 
 export type TaskUserMinOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
-  taskId?: Prisma.SortOrder
-  assignedAt?: Prisma.SortOrder
-}
+	id?: Prisma.SortOrder;
+	userId?: Prisma.SortOrder;
+	taskId?: Prisma.SortOrder;
+	assignedAt?: Prisma.SortOrder;
+};
 
 export type TaskUserCreateNestedManyWithoutUserInput = {
-  create?:
-    | Prisma.XOR<
-        Prisma.TaskUserCreateWithoutUserInput,
-        Prisma.TaskUserUncheckedCreateWithoutUserInput
-      >
-    | Prisma.TaskUserCreateWithoutUserInput[]
-    | Prisma.TaskUserUncheckedCreateWithoutUserInput[]
-  connectOrCreate?:
-    | Prisma.TaskUserCreateOrConnectWithoutUserInput
-    | Prisma.TaskUserCreateOrConnectWithoutUserInput[]
-  createMany?: Prisma.TaskUserCreateManyUserInputEnvelope
-  connect?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-}
+	create?:
+		| Prisma.XOR<
+				Prisma.TaskUserCreateWithoutUserInput,
+				Prisma.TaskUserUncheckedCreateWithoutUserInput
+		  >
+		| Prisma.TaskUserCreateWithoutUserInput[]
+		| Prisma.TaskUserUncheckedCreateWithoutUserInput[];
+	connectOrCreate?:
+		| Prisma.TaskUserCreateOrConnectWithoutUserInput
+		| Prisma.TaskUserCreateOrConnectWithoutUserInput[];
+	createMany?: Prisma.TaskUserCreateManyUserInputEnvelope;
+	connect?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[];
+};
 
 export type TaskUserUncheckedCreateNestedManyWithoutUserInput = {
-  create?:
-    | Prisma.XOR<
-        Prisma.TaskUserCreateWithoutUserInput,
-        Prisma.TaskUserUncheckedCreateWithoutUserInput
-      >
-    | Prisma.TaskUserCreateWithoutUserInput[]
-    | Prisma.TaskUserUncheckedCreateWithoutUserInput[]
-  connectOrCreate?:
-    | Prisma.TaskUserCreateOrConnectWithoutUserInput
-    | Prisma.TaskUserCreateOrConnectWithoutUserInput[]
-  createMany?: Prisma.TaskUserCreateManyUserInputEnvelope
-  connect?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-}
+	create?:
+		| Prisma.XOR<
+				Prisma.TaskUserCreateWithoutUserInput,
+				Prisma.TaskUserUncheckedCreateWithoutUserInput
+		  >
+		| Prisma.TaskUserCreateWithoutUserInput[]
+		| Prisma.TaskUserUncheckedCreateWithoutUserInput[];
+	connectOrCreate?:
+		| Prisma.TaskUserCreateOrConnectWithoutUserInput
+		| Prisma.TaskUserCreateOrConnectWithoutUserInput[];
+	createMany?: Prisma.TaskUserCreateManyUserInputEnvelope;
+	connect?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[];
+};
 
 export type TaskUserUpdateManyWithoutUserNestedInput = {
-  create?:
-    | Prisma.XOR<
-        Prisma.TaskUserCreateWithoutUserInput,
-        Prisma.TaskUserUncheckedCreateWithoutUserInput
-      >
-    | Prisma.TaskUserCreateWithoutUserInput[]
-    | Prisma.TaskUserUncheckedCreateWithoutUserInput[]
-  connectOrCreate?:
-    | Prisma.TaskUserCreateOrConnectWithoutUserInput
-    | Prisma.TaskUserCreateOrConnectWithoutUserInput[]
-  upsert?:
-    | Prisma.TaskUserUpsertWithWhereUniqueWithoutUserInput
-    | Prisma.TaskUserUpsertWithWhereUniqueWithoutUserInput[]
-  createMany?: Prisma.TaskUserCreateManyUserInputEnvelope
-  set?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-  disconnect?:
-    Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-  delete?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-  connect?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-  update?:
-    | Prisma.TaskUserUpdateWithWhereUniqueWithoutUserInput
-    | Prisma.TaskUserUpdateWithWhereUniqueWithoutUserInput[]
-  updateMany?:
-    | Prisma.TaskUserUpdateManyWithWhereWithoutUserInput
-    | Prisma.TaskUserUpdateManyWithWhereWithoutUserInput[]
-  deleteMany?:
-    Prisma.TaskUserScalarWhereInput | Prisma.TaskUserScalarWhereInput[]
-}
+	create?:
+		| Prisma.XOR<
+				Prisma.TaskUserCreateWithoutUserInput,
+				Prisma.TaskUserUncheckedCreateWithoutUserInput
+		  >
+		| Prisma.TaskUserCreateWithoutUserInput[]
+		| Prisma.TaskUserUncheckedCreateWithoutUserInput[];
+	connectOrCreate?:
+		| Prisma.TaskUserCreateOrConnectWithoutUserInput
+		| Prisma.TaskUserCreateOrConnectWithoutUserInput[];
+	upsert?:
+		| Prisma.TaskUserUpsertWithWhereUniqueWithoutUserInput
+		| Prisma.TaskUserUpsertWithWhereUniqueWithoutUserInput[];
+	createMany?: Prisma.TaskUserCreateManyUserInputEnvelope;
+	set?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[];
+	disconnect?:
+		| Prisma.TaskUserWhereUniqueInput
+		| Prisma.TaskUserWhereUniqueInput[];
+	delete?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[];
+	connect?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[];
+	update?:
+		| Prisma.TaskUserUpdateWithWhereUniqueWithoutUserInput
+		| Prisma.TaskUserUpdateWithWhereUniqueWithoutUserInput[];
+	updateMany?:
+		| Prisma.TaskUserUpdateManyWithWhereWithoutUserInput
+		| Prisma.TaskUserUpdateManyWithWhereWithoutUserInput[];
+	deleteMany?:
+		| Prisma.TaskUserScalarWhereInput
+		| Prisma.TaskUserScalarWhereInput[];
+};
 
 export type TaskUserUncheckedUpdateManyWithoutUserNestedInput = {
-  create?:
-    | Prisma.XOR<
-        Prisma.TaskUserCreateWithoutUserInput,
-        Prisma.TaskUserUncheckedCreateWithoutUserInput
-      >
-    | Prisma.TaskUserCreateWithoutUserInput[]
-    | Prisma.TaskUserUncheckedCreateWithoutUserInput[]
-  connectOrCreate?:
-    | Prisma.TaskUserCreateOrConnectWithoutUserInput
-    | Prisma.TaskUserCreateOrConnectWithoutUserInput[]
-  upsert?:
-    | Prisma.TaskUserUpsertWithWhereUniqueWithoutUserInput
-    | Prisma.TaskUserUpsertWithWhereUniqueWithoutUserInput[]
-  createMany?: Prisma.TaskUserCreateManyUserInputEnvelope
-  set?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-  disconnect?:
-    Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-  delete?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-  connect?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-  update?:
-    | Prisma.TaskUserUpdateWithWhereUniqueWithoutUserInput
-    | Prisma.TaskUserUpdateWithWhereUniqueWithoutUserInput[]
-  updateMany?:
-    | Prisma.TaskUserUpdateManyWithWhereWithoutUserInput
-    | Prisma.TaskUserUpdateManyWithWhereWithoutUserInput[]
-  deleteMany?:
-    Prisma.TaskUserScalarWhereInput | Prisma.TaskUserScalarWhereInput[]
-}
+	create?:
+		| Prisma.XOR<
+				Prisma.TaskUserCreateWithoutUserInput,
+				Prisma.TaskUserUncheckedCreateWithoutUserInput
+		  >
+		| Prisma.TaskUserCreateWithoutUserInput[]
+		| Prisma.TaskUserUncheckedCreateWithoutUserInput[];
+	connectOrCreate?:
+		| Prisma.TaskUserCreateOrConnectWithoutUserInput
+		| Prisma.TaskUserCreateOrConnectWithoutUserInput[];
+	upsert?:
+		| Prisma.TaskUserUpsertWithWhereUniqueWithoutUserInput
+		| Prisma.TaskUserUpsertWithWhereUniqueWithoutUserInput[];
+	createMany?: Prisma.TaskUserCreateManyUserInputEnvelope;
+	set?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[];
+	disconnect?:
+		| Prisma.TaskUserWhereUniqueInput
+		| Prisma.TaskUserWhereUniqueInput[];
+	delete?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[];
+	connect?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[];
+	update?:
+		| Prisma.TaskUserUpdateWithWhereUniqueWithoutUserInput
+		| Prisma.TaskUserUpdateWithWhereUniqueWithoutUserInput[];
+	updateMany?:
+		| Prisma.TaskUserUpdateManyWithWhereWithoutUserInput
+		| Prisma.TaskUserUpdateManyWithWhereWithoutUserInput[];
+	deleteMany?:
+		| Prisma.TaskUserScalarWhereInput
+		| Prisma.TaskUserScalarWhereInput[];
+};
 
 export type TaskUserCreateNestedManyWithoutTaskInput = {
-  create?:
-    | Prisma.XOR<
-        Prisma.TaskUserCreateWithoutTaskInput,
-        Prisma.TaskUserUncheckedCreateWithoutTaskInput
-      >
-    | Prisma.TaskUserCreateWithoutTaskInput[]
-    | Prisma.TaskUserUncheckedCreateWithoutTaskInput[]
-  connectOrCreate?:
-    | Prisma.TaskUserCreateOrConnectWithoutTaskInput
-    | Prisma.TaskUserCreateOrConnectWithoutTaskInput[]
-  createMany?: Prisma.TaskUserCreateManyTaskInputEnvelope
-  connect?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-}
+	create?:
+		| Prisma.XOR<
+				Prisma.TaskUserCreateWithoutTaskInput,
+				Prisma.TaskUserUncheckedCreateWithoutTaskInput
+		  >
+		| Prisma.TaskUserCreateWithoutTaskInput[]
+		| Prisma.TaskUserUncheckedCreateWithoutTaskInput[];
+	connectOrCreate?:
+		| Prisma.TaskUserCreateOrConnectWithoutTaskInput
+		| Prisma.TaskUserCreateOrConnectWithoutTaskInput[];
+	createMany?: Prisma.TaskUserCreateManyTaskInputEnvelope;
+	connect?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[];
+};
 
 export type TaskUserUncheckedCreateNestedManyWithoutTaskInput = {
-  create?:
-    | Prisma.XOR<
-        Prisma.TaskUserCreateWithoutTaskInput,
-        Prisma.TaskUserUncheckedCreateWithoutTaskInput
-      >
-    | Prisma.TaskUserCreateWithoutTaskInput[]
-    | Prisma.TaskUserUncheckedCreateWithoutTaskInput[]
-  connectOrCreate?:
-    | Prisma.TaskUserCreateOrConnectWithoutTaskInput
-    | Prisma.TaskUserCreateOrConnectWithoutTaskInput[]
-  createMany?: Prisma.TaskUserCreateManyTaskInputEnvelope
-  connect?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-}
+	create?:
+		| Prisma.XOR<
+				Prisma.TaskUserCreateWithoutTaskInput,
+				Prisma.TaskUserUncheckedCreateWithoutTaskInput
+		  >
+		| Prisma.TaskUserCreateWithoutTaskInput[]
+		| Prisma.TaskUserUncheckedCreateWithoutTaskInput[];
+	connectOrCreate?:
+		| Prisma.TaskUserCreateOrConnectWithoutTaskInput
+		| Prisma.TaskUserCreateOrConnectWithoutTaskInput[];
+	createMany?: Prisma.TaskUserCreateManyTaskInputEnvelope;
+	connect?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[];
+};
 
 export type TaskUserUpdateManyWithoutTaskNestedInput = {
-  create?:
-    | Prisma.XOR<
-        Prisma.TaskUserCreateWithoutTaskInput,
-        Prisma.TaskUserUncheckedCreateWithoutTaskInput
-      >
-    | Prisma.TaskUserCreateWithoutTaskInput[]
-    | Prisma.TaskUserUncheckedCreateWithoutTaskInput[]
-  connectOrCreate?:
-    | Prisma.TaskUserCreateOrConnectWithoutTaskInput
-    | Prisma.TaskUserCreateOrConnectWithoutTaskInput[]
-  upsert?:
-    | Prisma.TaskUserUpsertWithWhereUniqueWithoutTaskInput
-    | Prisma.TaskUserUpsertWithWhereUniqueWithoutTaskInput[]
-  createMany?: Prisma.TaskUserCreateManyTaskInputEnvelope
-  set?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-  disconnect?:
-    Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-  delete?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-  connect?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-  update?:
-    | Prisma.TaskUserUpdateWithWhereUniqueWithoutTaskInput
-    | Prisma.TaskUserUpdateWithWhereUniqueWithoutTaskInput[]
-  updateMany?:
-    | Prisma.TaskUserUpdateManyWithWhereWithoutTaskInput
-    | Prisma.TaskUserUpdateManyWithWhereWithoutTaskInput[]
-  deleteMany?:
-    Prisma.TaskUserScalarWhereInput | Prisma.TaskUserScalarWhereInput[]
-}
+	create?:
+		| Prisma.XOR<
+				Prisma.TaskUserCreateWithoutTaskInput,
+				Prisma.TaskUserUncheckedCreateWithoutTaskInput
+		  >
+		| Prisma.TaskUserCreateWithoutTaskInput[]
+		| Prisma.TaskUserUncheckedCreateWithoutTaskInput[];
+	connectOrCreate?:
+		| Prisma.TaskUserCreateOrConnectWithoutTaskInput
+		| Prisma.TaskUserCreateOrConnectWithoutTaskInput[];
+	upsert?:
+		| Prisma.TaskUserUpsertWithWhereUniqueWithoutTaskInput
+		| Prisma.TaskUserUpsertWithWhereUniqueWithoutTaskInput[];
+	createMany?: Prisma.TaskUserCreateManyTaskInputEnvelope;
+	set?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[];
+	disconnect?:
+		| Prisma.TaskUserWhereUniqueInput
+		| Prisma.TaskUserWhereUniqueInput[];
+	delete?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[];
+	connect?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[];
+	update?:
+		| Prisma.TaskUserUpdateWithWhereUniqueWithoutTaskInput
+		| Prisma.TaskUserUpdateWithWhereUniqueWithoutTaskInput[];
+	updateMany?:
+		| Prisma.TaskUserUpdateManyWithWhereWithoutTaskInput
+		| Prisma.TaskUserUpdateManyWithWhereWithoutTaskInput[];
+	deleteMany?:
+		| Prisma.TaskUserScalarWhereInput
+		| Prisma.TaskUserScalarWhereInput[];
+};
 
 export type TaskUserUncheckedUpdateManyWithoutTaskNestedInput = {
-  create?:
-    | Prisma.XOR<
-        Prisma.TaskUserCreateWithoutTaskInput,
-        Prisma.TaskUserUncheckedCreateWithoutTaskInput
-      >
-    | Prisma.TaskUserCreateWithoutTaskInput[]
-    | Prisma.TaskUserUncheckedCreateWithoutTaskInput[]
-  connectOrCreate?:
-    | Prisma.TaskUserCreateOrConnectWithoutTaskInput
-    | Prisma.TaskUserCreateOrConnectWithoutTaskInput[]
-  upsert?:
-    | Prisma.TaskUserUpsertWithWhereUniqueWithoutTaskInput
-    | Prisma.TaskUserUpsertWithWhereUniqueWithoutTaskInput[]
-  createMany?: Prisma.TaskUserCreateManyTaskInputEnvelope
-  set?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-  disconnect?:
-    Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-  delete?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-  connect?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[]
-  update?:
-    | Prisma.TaskUserUpdateWithWhereUniqueWithoutTaskInput
-    | Prisma.TaskUserUpdateWithWhereUniqueWithoutTaskInput[]
-  updateMany?:
-    | Prisma.TaskUserUpdateManyWithWhereWithoutTaskInput
-    | Prisma.TaskUserUpdateManyWithWhereWithoutTaskInput[]
-  deleteMany?:
-    Prisma.TaskUserScalarWhereInput | Prisma.TaskUserScalarWhereInput[]
-}
+	create?:
+		| Prisma.XOR<
+				Prisma.TaskUserCreateWithoutTaskInput,
+				Prisma.TaskUserUncheckedCreateWithoutTaskInput
+		  >
+		| Prisma.TaskUserCreateWithoutTaskInput[]
+		| Prisma.TaskUserUncheckedCreateWithoutTaskInput[];
+	connectOrCreate?:
+		| Prisma.TaskUserCreateOrConnectWithoutTaskInput
+		| Prisma.TaskUserCreateOrConnectWithoutTaskInput[];
+	upsert?:
+		| Prisma.TaskUserUpsertWithWhereUniqueWithoutTaskInput
+		| Prisma.TaskUserUpsertWithWhereUniqueWithoutTaskInput[];
+	createMany?: Prisma.TaskUserCreateManyTaskInputEnvelope;
+	set?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[];
+	disconnect?:
+		| Prisma.TaskUserWhereUniqueInput
+		| Prisma.TaskUserWhereUniqueInput[];
+	delete?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[];
+	connect?: Prisma.TaskUserWhereUniqueInput | Prisma.TaskUserWhereUniqueInput[];
+	update?:
+		| Prisma.TaskUserUpdateWithWhereUniqueWithoutTaskInput
+		| Prisma.TaskUserUpdateWithWhereUniqueWithoutTaskInput[];
+	updateMany?:
+		| Prisma.TaskUserUpdateManyWithWhereWithoutTaskInput
+		| Prisma.TaskUserUpdateManyWithWhereWithoutTaskInput[];
+	deleteMany?:
+		| Prisma.TaskUserScalarWhereInput
+		| Prisma.TaskUserScalarWhereInput[];
+};
 
 export type TaskUserCreateWithoutUserInput = {
-  id?: string
-  assignedAt?: Date | string
-  task: Prisma.TaskCreateNestedOneWithoutTaskUserInput
-}
+	id?: string;
+	assignedAt?: Date | string;
+	task: Prisma.TaskCreateNestedOneWithoutTaskUserInput;
+};
 
 export type TaskUserUncheckedCreateWithoutUserInput = {
-  id?: string
-  taskId: string
-  assignedAt?: Date | string
-}
+	id?: string;
+	taskId: string;
+	assignedAt?: Date | string;
+};
 
 export type TaskUserCreateOrConnectWithoutUserInput = {
-  where: Prisma.TaskUserWhereUniqueInput
-  create: Prisma.XOR<
-    Prisma.TaskUserCreateWithoutUserInput,
-    Prisma.TaskUserUncheckedCreateWithoutUserInput
-  >
-}
+	where: Prisma.TaskUserWhereUniqueInput;
+	create: Prisma.XOR<
+		Prisma.TaskUserCreateWithoutUserInput,
+		Prisma.TaskUserUncheckedCreateWithoutUserInput
+	>;
+};
 
 export type TaskUserCreateManyUserInputEnvelope = {
-  data:
-    Prisma.TaskUserCreateManyUserInput | Prisma.TaskUserCreateManyUserInput[]
-  skipDuplicates?: boolean
-}
+	data:
+		| Prisma.TaskUserCreateManyUserInput
+		| Prisma.TaskUserCreateManyUserInput[];
+	skipDuplicates?: boolean;
+};
 
 export type TaskUserUpsertWithWhereUniqueWithoutUserInput = {
-  where: Prisma.TaskUserWhereUniqueInput
-  update: Prisma.XOR<
-    Prisma.TaskUserUpdateWithoutUserInput,
-    Prisma.TaskUserUncheckedUpdateWithoutUserInput
-  >
-  create: Prisma.XOR<
-    Prisma.TaskUserCreateWithoutUserInput,
-    Prisma.TaskUserUncheckedCreateWithoutUserInput
-  >
-}
+	where: Prisma.TaskUserWhereUniqueInput;
+	update: Prisma.XOR<
+		Prisma.TaskUserUpdateWithoutUserInput,
+		Prisma.TaskUserUncheckedUpdateWithoutUserInput
+	>;
+	create: Prisma.XOR<
+		Prisma.TaskUserCreateWithoutUserInput,
+		Prisma.TaskUserUncheckedCreateWithoutUserInput
+	>;
+};
 
 export type TaskUserUpdateWithWhereUniqueWithoutUserInput = {
-  where: Prisma.TaskUserWhereUniqueInput
-  data: Prisma.XOR<
-    Prisma.TaskUserUpdateWithoutUserInput,
-    Prisma.TaskUserUncheckedUpdateWithoutUserInput
-  >
-}
+	where: Prisma.TaskUserWhereUniqueInput;
+	data: Prisma.XOR<
+		Prisma.TaskUserUpdateWithoutUserInput,
+		Prisma.TaskUserUncheckedUpdateWithoutUserInput
+	>;
+};
 
 export type TaskUserUpdateManyWithWhereWithoutUserInput = {
-  where: Prisma.TaskUserScalarWhereInput
-  data: Prisma.XOR<
-    Prisma.TaskUserUpdateManyMutationInput,
-    Prisma.TaskUserUncheckedUpdateManyWithoutUserInput
-  >
-}
+	where: Prisma.TaskUserScalarWhereInput;
+	data: Prisma.XOR<
+		Prisma.TaskUserUpdateManyMutationInput,
+		Prisma.TaskUserUncheckedUpdateManyWithoutUserInput
+	>;
+};
 
 export type TaskUserScalarWhereInput = {
-  AND?: Prisma.TaskUserScalarWhereInput | Prisma.TaskUserScalarWhereInput[]
-  OR?: Prisma.TaskUserScalarWhereInput[]
-  NOT?: Prisma.TaskUserScalarWhereInput | Prisma.TaskUserScalarWhereInput[]
-  id?: Prisma.StringFilter<'TaskUser'> | string
-  userId?: Prisma.StringFilter<'TaskUser'> | string
-  taskId?: Prisma.StringFilter<'TaskUser'> | string
-  assignedAt?: Prisma.DateTimeFilter<'TaskUser'> | Date | string
-}
+	AND?: Prisma.TaskUserScalarWhereInput | Prisma.TaskUserScalarWhereInput[];
+	OR?: Prisma.TaskUserScalarWhereInput[];
+	NOT?: Prisma.TaskUserScalarWhereInput | Prisma.TaskUserScalarWhereInput[];
+	id?: Prisma.StringFilter<"TaskUser"> | string;
+	userId?: Prisma.StringFilter<"TaskUser"> | string;
+	taskId?: Prisma.StringFilter<"TaskUser"> | string;
+	assignedAt?: Prisma.DateTimeFilter<"TaskUser"> | Date | string;
+};
 
 export type TaskUserCreateWithoutTaskInput = {
-  id?: string
-  assignedAt?: Date | string
-  user: Prisma.UserCreateNestedOneWithoutTaskUserInput
-}
+	id?: string;
+	assignedAt?: Date | string;
+	user: Prisma.UserCreateNestedOneWithoutTaskUserInput;
+};
 
 export type TaskUserUncheckedCreateWithoutTaskInput = {
-  id?: string
-  userId: string
-  assignedAt?: Date | string
-}
+	id?: string;
+	userId: string;
+	assignedAt?: Date | string;
+};
 
 export type TaskUserCreateOrConnectWithoutTaskInput = {
-  where: Prisma.TaskUserWhereUniqueInput
-  create: Prisma.XOR<
-    Prisma.TaskUserCreateWithoutTaskInput,
-    Prisma.TaskUserUncheckedCreateWithoutTaskInput
-  >
-}
+	where: Prisma.TaskUserWhereUniqueInput;
+	create: Prisma.XOR<
+		Prisma.TaskUserCreateWithoutTaskInput,
+		Prisma.TaskUserUncheckedCreateWithoutTaskInput
+	>;
+};
 
 export type TaskUserCreateManyTaskInputEnvelope = {
-  data:
-    Prisma.TaskUserCreateManyTaskInput | Prisma.TaskUserCreateManyTaskInput[]
-  skipDuplicates?: boolean
-}
+	data:
+		| Prisma.TaskUserCreateManyTaskInput
+		| Prisma.TaskUserCreateManyTaskInput[];
+	skipDuplicates?: boolean;
+};
 
 export type TaskUserUpsertWithWhereUniqueWithoutTaskInput = {
-  where: Prisma.TaskUserWhereUniqueInput
-  update: Prisma.XOR<
-    Prisma.TaskUserUpdateWithoutTaskInput,
-    Prisma.TaskUserUncheckedUpdateWithoutTaskInput
-  >
-  create: Prisma.XOR<
-    Prisma.TaskUserCreateWithoutTaskInput,
-    Prisma.TaskUserUncheckedCreateWithoutTaskInput
-  >
-}
+	where: Prisma.TaskUserWhereUniqueInput;
+	update: Prisma.XOR<
+		Prisma.TaskUserUpdateWithoutTaskInput,
+		Prisma.TaskUserUncheckedUpdateWithoutTaskInput
+	>;
+	create: Prisma.XOR<
+		Prisma.TaskUserCreateWithoutTaskInput,
+		Prisma.TaskUserUncheckedCreateWithoutTaskInput
+	>;
+};
 
 export type TaskUserUpdateWithWhereUniqueWithoutTaskInput = {
-  where: Prisma.TaskUserWhereUniqueInput
-  data: Prisma.XOR<
-    Prisma.TaskUserUpdateWithoutTaskInput,
-    Prisma.TaskUserUncheckedUpdateWithoutTaskInput
-  >
-}
+	where: Prisma.TaskUserWhereUniqueInput;
+	data: Prisma.XOR<
+		Prisma.TaskUserUpdateWithoutTaskInput,
+		Prisma.TaskUserUncheckedUpdateWithoutTaskInput
+	>;
+};
 
 export type TaskUserUpdateManyWithWhereWithoutTaskInput = {
-  where: Prisma.TaskUserScalarWhereInput
-  data: Prisma.XOR<
-    Prisma.TaskUserUpdateManyMutationInput,
-    Prisma.TaskUserUncheckedUpdateManyWithoutTaskInput
-  >
-}
+	where: Prisma.TaskUserScalarWhereInput;
+	data: Prisma.XOR<
+		Prisma.TaskUserUpdateManyMutationInput,
+		Prisma.TaskUserUncheckedUpdateManyWithoutTaskInput
+	>;
+};
 
 export type TaskUserCreateManyUserInput = {
-  id?: string
-  taskId: string
-  assignedAt?: Date | string
-}
+	id?: string;
+	taskId: string;
+	assignedAt?: Date | string;
+};
 
 export type TaskUserUpdateWithoutUserInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  task?: Prisma.TaskUpdateOneRequiredWithoutTaskUserNestedInput
-}
+	id?: Prisma.StringFieldUpdateOperationsInput | string;
+	assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+	task?: Prisma.TaskUpdateOneRequiredWithoutTaskUserNestedInput;
+};
 
 export type TaskUserUncheckedUpdateWithoutUserInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  taskId?: Prisma.StringFieldUpdateOperationsInput | string
-  assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
+	id?: Prisma.StringFieldUpdateOperationsInput | string;
+	taskId?: Prisma.StringFieldUpdateOperationsInput | string;
+	assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
 
 export type TaskUserUncheckedUpdateManyWithoutUserInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  taskId?: Prisma.StringFieldUpdateOperationsInput | string
-  assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
+	id?: Prisma.StringFieldUpdateOperationsInput | string;
+	taskId?: Prisma.StringFieldUpdateOperationsInput | string;
+	assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
 
 export type TaskUserCreateManyTaskInput = {
-  id?: string
-  userId: string
-  assignedAt?: Date | string
-}
+	id?: string;
+	userId: string;
+	assignedAt?: Date | string;
+};
 
 export type TaskUserUpdateWithoutTaskInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutTaskUserNestedInput
-}
+	id?: Prisma.StringFieldUpdateOperationsInput | string;
+	assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+	user?: Prisma.UserUpdateOneRequiredWithoutTaskUserNestedInput;
+};
 
 export type TaskUserUncheckedUpdateWithoutTaskInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-  assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
+	id?: Prisma.StringFieldUpdateOperationsInput | string;
+	userId?: Prisma.StringFieldUpdateOperationsInput | string;
+	assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
 
 export type TaskUserUncheckedUpdateManyWithoutTaskInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-  assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
+	id?: Prisma.StringFieldUpdateOperationsInput | string;
+	userId?: Prisma.StringFieldUpdateOperationsInput | string;
+	assignedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
 
 export type TaskUserSelect<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = runtime.Types.Extensions.GetSelect<
-  {
-    id?: boolean
-    userId?: boolean
-    taskId?: boolean
-    assignedAt?: boolean
-    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-    task?: boolean | Prisma.TaskDefaultArgs<ExtArgs>
-  },
-  ExtArgs['result']['taskUser']
->
+	{
+		id?: boolean;
+		userId?: boolean;
+		taskId?: boolean;
+		assignedAt?: boolean;
+		user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+		task?: boolean | Prisma.TaskDefaultArgs<ExtArgs>;
+	},
+	ExtArgs["result"]["taskUser"]
+>;
 
 export type TaskUserSelectCreateManyAndReturn<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = runtime.Types.Extensions.GetSelect<
-  {
-    id?: boolean
-    userId?: boolean
-    taskId?: boolean
-    assignedAt?: boolean
-    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-    task?: boolean | Prisma.TaskDefaultArgs<ExtArgs>
-  },
-  ExtArgs['result']['taskUser']
->
+	{
+		id?: boolean;
+		userId?: boolean;
+		taskId?: boolean;
+		assignedAt?: boolean;
+		user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+		task?: boolean | Prisma.TaskDefaultArgs<ExtArgs>;
+	},
+	ExtArgs["result"]["taskUser"]
+>;
 
 export type TaskUserSelectUpdateManyAndReturn<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = runtime.Types.Extensions.GetSelect<
-  {
-    id?: boolean
-    userId?: boolean
-    taskId?: boolean
-    assignedAt?: boolean
-    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-    task?: boolean | Prisma.TaskDefaultArgs<ExtArgs>
-  },
-  ExtArgs['result']['taskUser']
->
+	{
+		id?: boolean;
+		userId?: boolean;
+		taskId?: boolean;
+		assignedAt?: boolean;
+		user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+		task?: boolean | Prisma.TaskDefaultArgs<ExtArgs>;
+	},
+	ExtArgs["result"]["taskUser"]
+>;
 
 export type TaskUserSelectScalar = {
-  id?: boolean
-  userId?: boolean
-  taskId?: boolean
-  assignedAt?: boolean
-}
+	id?: boolean;
+	userId?: boolean;
+	taskId?: boolean;
+	assignedAt?: boolean;
+};
 
 export type TaskUserOmit<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = runtime.Types.Extensions.GetOmit<
-  'id' | 'userId' | 'taskId' | 'assignedAt',
-  ExtArgs['result']['taskUser']
->
+	"id" | "userId" | "taskId" | "assignedAt",
+	ExtArgs["result"]["taskUser"]
+>;
 export type TaskUserInclude<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  task?: boolean | Prisma.TaskDefaultArgs<ExtArgs>
-}
+	user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+	task?: boolean | Prisma.TaskDefaultArgs<ExtArgs>;
+};
 export type TaskUserIncludeCreateManyAndReturn<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  task?: boolean | Prisma.TaskDefaultArgs<ExtArgs>
-}
+	user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+	task?: boolean | Prisma.TaskDefaultArgs<ExtArgs>;
+};
 export type TaskUserIncludeUpdateManyAndReturn<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  task?: boolean | Prisma.TaskDefaultArgs<ExtArgs>
-}
+	user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+	task?: boolean | Prisma.TaskDefaultArgs<ExtArgs>;
+};
 
 export type $TaskUserPayload<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  name: 'TaskUser'
-  objects: {
-    user: Prisma.$UserPayload<ExtArgs>
-    task: Prisma.$TaskPayload<ExtArgs>
-  }
-  scalars: runtime.Types.Extensions.GetPayloadResult<
-    {
-      id: string
-      userId: string
-      taskId: string
-      assignedAt: Date
-    },
-    ExtArgs['result']['taskUser']
-  >
-  composites: {}
-}
+	name: "TaskUser";
+	objects: {
+		user: Prisma.$UserPayload<ExtArgs>;
+		task: Prisma.$TaskPayload<ExtArgs>;
+	};
+	scalars: runtime.Types.Extensions.GetPayloadResult<
+		{
+			id: string;
+			userId: string;
+			taskId: string;
+			assignedAt: Date;
+		},
+		ExtArgs["result"]["taskUser"]
+	>;
+	composites: {};
+};
 
 export type TaskUserGetPayload<
-  S extends boolean | null | undefined | TaskUserDefaultArgs,
-> = runtime.Types.Result.GetResult<Prisma.$TaskUserPayload, S>
+	S extends boolean | null | undefined | TaskUserDefaultArgs,
+> = runtime.Types.Result.GetResult<Prisma.$TaskUserPayload, S>;
 
 export type TaskUserCountArgs<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
-> = Omit<TaskUserFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-  select?: TaskUserCountAggregateInputType | true
-}
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+> = Omit<TaskUserFindManyArgs, "select" | "include" | "distinct" | "omit"> & {
+	select?: TaskUserCountAggregateInputType | true;
+};
 
 export interface TaskUserDelegate<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
-  GlobalOmitOptions = {},
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+	GlobalOmitOptions = {},
 > {
-  [K: symbol]: {
-    types: Prisma.TypeMap<ExtArgs>['model']['TaskUser']
-    meta: { name: 'TaskUser' }
-  }
-  /**
-   * Find zero or one TaskUser that matches the filter.
-   * @param {TaskUserFindUniqueArgs} args - Arguments to find a TaskUser
-   * @example
-   * // Get one TaskUser
-   * const taskUser = await prisma.taskUser.findUnique({
-   *   where: {
-   *     // ... provide filter here
-   *   }
-   * })
-   */
-  findUnique<T extends TaskUserFindUniqueArgs>(
-    args: Prisma.SelectSubset<T, TaskUserFindUniqueArgs<ExtArgs>>,
-  ): Prisma.Prisma__TaskUserClient<
-    runtime.Types.Result.GetResult<
-      Prisma.$TaskUserPayload<ExtArgs>,
-      T,
-      'findUnique',
-      GlobalOmitOptions
-    > | null,
-    null,
-    ExtArgs,
-    GlobalOmitOptions
-  >
+	[K: symbol]: {
+		types: Prisma.TypeMap<ExtArgs>["model"]["TaskUser"];
+		meta: { name: "TaskUser" };
+	};
+	/**
+	 * Find zero or one TaskUser that matches the filter.
+	 * @param {TaskUserFindUniqueArgs} args - Arguments to find a TaskUser
+	 * @example
+	 * // Get one TaskUser
+	 * const taskUser = await prisma.taskUser.findUnique({
+	 *   where: {
+	 *     // ... provide filter here
+	 *   }
+	 * })
+	 */
+	findUnique<T extends TaskUserFindUniqueArgs>(
+		args: Prisma.SelectSubset<T, TaskUserFindUniqueArgs<ExtArgs>>,
+	): Prisma.Prisma__TaskUserClient<
+		runtime.Types.Result.GetResult<
+			Prisma.$TaskUserPayload<ExtArgs>,
+			T,
+			"findUnique",
+			GlobalOmitOptions
+		> | null,
+		null,
+		ExtArgs,
+		GlobalOmitOptions
+	>;
 
-  /**
-   * Find one TaskUser that matches the filter or throw an error with `error.code='P2025'`
-   * if no matches were found.
-   * @param {TaskUserFindUniqueOrThrowArgs} args - Arguments to find a TaskUser
-   * @example
-   * // Get one TaskUser
-   * const taskUser = await prisma.taskUser.findUniqueOrThrow({
-   *   where: {
-   *     // ... provide filter here
-   *   }
-   * })
-   */
-  findUniqueOrThrow<T extends TaskUserFindUniqueOrThrowArgs>(
-    args: Prisma.SelectSubset<T, TaskUserFindUniqueOrThrowArgs<ExtArgs>>,
-  ): Prisma.Prisma__TaskUserClient<
-    runtime.Types.Result.GetResult<
-      Prisma.$TaskUserPayload<ExtArgs>,
-      T,
-      'findUniqueOrThrow',
-      GlobalOmitOptions
-    >,
-    never,
-    ExtArgs,
-    GlobalOmitOptions
-  >
+	/**
+	 * Find one TaskUser that matches the filter or throw an error with `error.code='P2025'`
+	 * if no matches were found.
+	 * @param {TaskUserFindUniqueOrThrowArgs} args - Arguments to find a TaskUser
+	 * @example
+	 * // Get one TaskUser
+	 * const taskUser = await prisma.taskUser.findUniqueOrThrow({
+	 *   where: {
+	 *     // ... provide filter here
+	 *   }
+	 * })
+	 */
+	findUniqueOrThrow<T extends TaskUserFindUniqueOrThrowArgs>(
+		args: Prisma.SelectSubset<T, TaskUserFindUniqueOrThrowArgs<ExtArgs>>,
+	): Prisma.Prisma__TaskUserClient<
+		runtime.Types.Result.GetResult<
+			Prisma.$TaskUserPayload<ExtArgs>,
+			T,
+			"findUniqueOrThrow",
+			GlobalOmitOptions
+		>,
+		never,
+		ExtArgs,
+		GlobalOmitOptions
+	>;
 
-  /**
-   * Find the first TaskUser that matches the filter.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {TaskUserFindFirstArgs} args - Arguments to find a TaskUser
-   * @example
-   * // Get one TaskUser
-   * const taskUser = await prisma.taskUser.findFirst({
-   *   where: {
-   *     // ... provide filter here
-   *   }
-   * })
-   */
-  findFirst<T extends TaskUserFindFirstArgs>(
-    args?: Prisma.SelectSubset<T, TaskUserFindFirstArgs<ExtArgs>>,
-  ): Prisma.Prisma__TaskUserClient<
-    runtime.Types.Result.GetResult<
-      Prisma.$TaskUserPayload<ExtArgs>,
-      T,
-      'findFirst',
-      GlobalOmitOptions
-    > | null,
-    null,
-    ExtArgs,
-    GlobalOmitOptions
-  >
+	/**
+	 * Find the first TaskUser that matches the filter.
+	 * Note, that providing `undefined` is treated as the value not being there.
+	 * Read more here: https://pris.ly/d/null-undefined
+	 * @param {TaskUserFindFirstArgs} args - Arguments to find a TaskUser
+	 * @example
+	 * // Get one TaskUser
+	 * const taskUser = await prisma.taskUser.findFirst({
+	 *   where: {
+	 *     // ... provide filter here
+	 *   }
+	 * })
+	 */
+	findFirst<T extends TaskUserFindFirstArgs>(
+		args?: Prisma.SelectSubset<T, TaskUserFindFirstArgs<ExtArgs>>,
+	): Prisma.Prisma__TaskUserClient<
+		runtime.Types.Result.GetResult<
+			Prisma.$TaskUserPayload<ExtArgs>,
+			T,
+			"findFirst",
+			GlobalOmitOptions
+		> | null,
+		null,
+		ExtArgs,
+		GlobalOmitOptions
+	>;
 
-  /**
-   * Find the first TaskUser that matches the filter or
-   * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {TaskUserFindFirstOrThrowArgs} args - Arguments to find a TaskUser
-   * @example
-   * // Get one TaskUser
-   * const taskUser = await prisma.taskUser.findFirstOrThrow({
-   *   where: {
-   *     // ... provide filter here
-   *   }
-   * })
-   */
-  findFirstOrThrow<T extends TaskUserFindFirstOrThrowArgs>(
-    args?: Prisma.SelectSubset<T, TaskUserFindFirstOrThrowArgs<ExtArgs>>,
-  ): Prisma.Prisma__TaskUserClient<
-    runtime.Types.Result.GetResult<
-      Prisma.$TaskUserPayload<ExtArgs>,
-      T,
-      'findFirstOrThrow',
-      GlobalOmitOptions
-    >,
-    never,
-    ExtArgs,
-    GlobalOmitOptions
-  >
+	/**
+	 * Find the first TaskUser that matches the filter or
+	 * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+	 * Note, that providing `undefined` is treated as the value not being there.
+	 * Read more here: https://pris.ly/d/null-undefined
+	 * @param {TaskUserFindFirstOrThrowArgs} args - Arguments to find a TaskUser
+	 * @example
+	 * // Get one TaskUser
+	 * const taskUser = await prisma.taskUser.findFirstOrThrow({
+	 *   where: {
+	 *     // ... provide filter here
+	 *   }
+	 * })
+	 */
+	findFirstOrThrow<T extends TaskUserFindFirstOrThrowArgs>(
+		args?: Prisma.SelectSubset<T, TaskUserFindFirstOrThrowArgs<ExtArgs>>,
+	): Prisma.Prisma__TaskUserClient<
+		runtime.Types.Result.GetResult<
+			Prisma.$TaskUserPayload<ExtArgs>,
+			T,
+			"findFirstOrThrow",
+			GlobalOmitOptions
+		>,
+		never,
+		ExtArgs,
+		GlobalOmitOptions
+	>;
 
-  /**
-   * Find zero or more TaskUsers that matches the filter.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {TaskUserFindManyArgs} args - Arguments to filter and select certain fields only.
-   * @example
-   * // Get all TaskUsers
-   * const taskUsers = await prisma.taskUser.findMany()
-   *
-   * // Get first 10 TaskUsers
-   * const taskUsers = await prisma.taskUser.findMany({ take: 10 })
-   *
-   * // Only select the `id`
-   * const taskUserWithIdOnly = await prisma.taskUser.findMany({ select: { id: true } })
-   *
-   */
-  findMany<T extends TaskUserFindManyArgs>(
-    args?: Prisma.SelectSubset<T, TaskUserFindManyArgs<ExtArgs>>,
-  ): Prisma.PrismaPromise<
-    runtime.Types.Result.GetResult<
-      Prisma.$TaskUserPayload<ExtArgs>,
-      T,
-      'findMany',
-      GlobalOmitOptions
-    >
-  >
+	/**
+	 * Find zero or more TaskUsers that matches the filter.
+	 * Note, that providing `undefined` is treated as the value not being there.
+	 * Read more here: https://pris.ly/d/null-undefined
+	 * @param {TaskUserFindManyArgs} args - Arguments to filter and select certain fields only.
+	 * @example
+	 * // Get all TaskUsers
+	 * const taskUsers = await prisma.taskUser.findMany()
+	 *
+	 * // Get first 10 TaskUsers
+	 * const taskUsers = await prisma.taskUser.findMany({ take: 10 })
+	 *
+	 * // Only select the `id`
+	 * const taskUserWithIdOnly = await prisma.taskUser.findMany({ select: { id: true } })
+	 *
+	 */
+	findMany<T extends TaskUserFindManyArgs>(
+		args?: Prisma.SelectSubset<T, TaskUserFindManyArgs<ExtArgs>>,
+	): Prisma.PrismaPromise<
+		runtime.Types.Result.GetResult<
+			Prisma.$TaskUserPayload<ExtArgs>,
+			T,
+			"findMany",
+			GlobalOmitOptions
+		>
+	>;
 
-  /**
-   * Create a TaskUser.
-   * @param {TaskUserCreateArgs} args - Arguments to create a TaskUser.
-   * @example
-   * // Create one TaskUser
-   * const TaskUser = await prisma.taskUser.create({
-   *   data: {
-   *     // ... data to create a TaskUser
-   *   }
-   * })
-   *
-   */
-  create<T extends TaskUserCreateArgs>(
-    args: Prisma.SelectSubset<T, TaskUserCreateArgs<ExtArgs>>,
-  ): Prisma.Prisma__TaskUserClient<
-    runtime.Types.Result.GetResult<
-      Prisma.$TaskUserPayload<ExtArgs>,
-      T,
-      'create',
-      GlobalOmitOptions
-    >,
-    never,
-    ExtArgs,
-    GlobalOmitOptions
-  >
+	/**
+	 * Create a TaskUser.
+	 * @param {TaskUserCreateArgs} args - Arguments to create a TaskUser.
+	 * @example
+	 * // Create one TaskUser
+	 * const TaskUser = await prisma.taskUser.create({
+	 *   data: {
+	 *     // ... data to create a TaskUser
+	 *   }
+	 * })
+	 *
+	 */
+	create<T extends TaskUserCreateArgs>(
+		args: Prisma.SelectSubset<T, TaskUserCreateArgs<ExtArgs>>,
+	): Prisma.Prisma__TaskUserClient<
+		runtime.Types.Result.GetResult<
+			Prisma.$TaskUserPayload<ExtArgs>,
+			T,
+			"create",
+			GlobalOmitOptions
+		>,
+		never,
+		ExtArgs,
+		GlobalOmitOptions
+	>;
 
-  /**
-   * Create many TaskUsers.
-   * @param {TaskUserCreateManyArgs} args - Arguments to create many TaskUsers.
-   * @example
-   * // Create many TaskUsers
-   * const taskUser = await prisma.taskUser.createMany({
-   *   data: [
-   *     // ... provide data here
-   *   ]
-   * })
-   *
-   */
-  createMany<T extends TaskUserCreateManyArgs>(
-    args?: Prisma.SelectSubset<T, TaskUserCreateManyArgs<ExtArgs>>,
-  ): Prisma.PrismaPromise<Prisma.BatchPayload>
+	/**
+	 * Create many TaskUsers.
+	 * @param {TaskUserCreateManyArgs} args - Arguments to create many TaskUsers.
+	 * @example
+	 * // Create many TaskUsers
+	 * const taskUser = await prisma.taskUser.createMany({
+	 *   data: [
+	 *     // ... provide data here
+	 *   ]
+	 * })
+	 *
+	 */
+	createMany<T extends TaskUserCreateManyArgs>(
+		args?: Prisma.SelectSubset<T, TaskUserCreateManyArgs<ExtArgs>>,
+	): Prisma.PrismaPromise<Prisma.BatchPayload>;
 
-  /**
-   * Create many TaskUsers and returns the data saved in the database.
-   * @param {TaskUserCreateManyAndReturnArgs} args - Arguments to create many TaskUsers.
-   * @example
-   * // Create many TaskUsers
-   * const taskUser = await prisma.taskUser.createManyAndReturn({
-   *   data: [
-   *     // ... provide data here
-   *   ]
-   * })
-   *
-   * // Create many TaskUsers and only return the `id`
-   * const taskUserWithIdOnly = await prisma.taskUser.createManyAndReturn({
-   *   select: { id: true },
-   *   data: [
-   *     // ... provide data here
-   *   ]
-   * })
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   *
-   */
-  createManyAndReturn<T extends TaskUserCreateManyAndReturnArgs>(
-    args?: Prisma.SelectSubset<T, TaskUserCreateManyAndReturnArgs<ExtArgs>>,
-  ): Prisma.PrismaPromise<
-    runtime.Types.Result.GetResult<
-      Prisma.$TaskUserPayload<ExtArgs>,
-      T,
-      'createManyAndReturn',
-      GlobalOmitOptions
-    >
-  >
+	/**
+	 * Create many TaskUsers and returns the data saved in the database.
+	 * @param {TaskUserCreateManyAndReturnArgs} args - Arguments to create many TaskUsers.
+	 * @example
+	 * // Create many TaskUsers
+	 * const taskUser = await prisma.taskUser.createManyAndReturn({
+	 *   data: [
+	 *     // ... provide data here
+	 *   ]
+	 * })
+	 *
+	 * // Create many TaskUsers and only return the `id`
+	 * const taskUserWithIdOnly = await prisma.taskUser.createManyAndReturn({
+	 *   select: { id: true },
+	 *   data: [
+	 *     // ... provide data here
+	 *   ]
+	 * })
+	 * Note, that providing `undefined` is treated as the value not being there.
+	 * Read more here: https://pris.ly/d/null-undefined
+	 *
+	 */
+	createManyAndReturn<T extends TaskUserCreateManyAndReturnArgs>(
+		args?: Prisma.SelectSubset<T, TaskUserCreateManyAndReturnArgs<ExtArgs>>,
+	): Prisma.PrismaPromise<
+		runtime.Types.Result.GetResult<
+			Prisma.$TaskUserPayload<ExtArgs>,
+			T,
+			"createManyAndReturn",
+			GlobalOmitOptions
+		>
+	>;
 
-  /**
-   * Delete a TaskUser.
-   * @param {TaskUserDeleteArgs} args - Arguments to delete one TaskUser.
-   * @example
-   * // Delete one TaskUser
-   * const TaskUser = await prisma.taskUser.delete({
-   *   where: {
-   *     // ... filter to delete one TaskUser
-   *   }
-   * })
-   *
-   */
-  delete<T extends TaskUserDeleteArgs>(
-    args: Prisma.SelectSubset<T, TaskUserDeleteArgs<ExtArgs>>,
-  ): Prisma.Prisma__TaskUserClient<
-    runtime.Types.Result.GetResult<
-      Prisma.$TaskUserPayload<ExtArgs>,
-      T,
-      'delete',
-      GlobalOmitOptions
-    >,
-    never,
-    ExtArgs,
-    GlobalOmitOptions
-  >
+	/**
+	 * Delete a TaskUser.
+	 * @param {TaskUserDeleteArgs} args - Arguments to delete one TaskUser.
+	 * @example
+	 * // Delete one TaskUser
+	 * const TaskUser = await prisma.taskUser.delete({
+	 *   where: {
+	 *     // ... filter to delete one TaskUser
+	 *   }
+	 * })
+	 *
+	 */
+	delete<T extends TaskUserDeleteArgs>(
+		args: Prisma.SelectSubset<T, TaskUserDeleteArgs<ExtArgs>>,
+	): Prisma.Prisma__TaskUserClient<
+		runtime.Types.Result.GetResult<
+			Prisma.$TaskUserPayload<ExtArgs>,
+			T,
+			"delete",
+			GlobalOmitOptions
+		>,
+		never,
+		ExtArgs,
+		GlobalOmitOptions
+	>;
 
-  /**
-   * Update one TaskUser.
-   * @param {TaskUserUpdateArgs} args - Arguments to update one TaskUser.
-   * @example
-   * // Update one TaskUser
-   * const taskUser = await prisma.taskUser.update({
-   *   where: {
-   *     // ... provide filter here
-   *   },
-   *   data: {
-   *     // ... provide data here
-   *   }
-   * })
-   *
-   */
-  update<T extends TaskUserUpdateArgs>(
-    args: Prisma.SelectSubset<T, TaskUserUpdateArgs<ExtArgs>>,
-  ): Prisma.Prisma__TaskUserClient<
-    runtime.Types.Result.GetResult<
-      Prisma.$TaskUserPayload<ExtArgs>,
-      T,
-      'update',
-      GlobalOmitOptions
-    >,
-    never,
-    ExtArgs,
-    GlobalOmitOptions
-  >
+	/**
+	 * Update one TaskUser.
+	 * @param {TaskUserUpdateArgs} args - Arguments to update one TaskUser.
+	 * @example
+	 * // Update one TaskUser
+	 * const taskUser = await prisma.taskUser.update({
+	 *   where: {
+	 *     // ... provide filter here
+	 *   },
+	 *   data: {
+	 *     // ... provide data here
+	 *   }
+	 * })
+	 *
+	 */
+	update<T extends TaskUserUpdateArgs>(
+		args: Prisma.SelectSubset<T, TaskUserUpdateArgs<ExtArgs>>,
+	): Prisma.Prisma__TaskUserClient<
+		runtime.Types.Result.GetResult<
+			Prisma.$TaskUserPayload<ExtArgs>,
+			T,
+			"update",
+			GlobalOmitOptions
+		>,
+		never,
+		ExtArgs,
+		GlobalOmitOptions
+	>;
 
-  /**
-   * Delete zero or more TaskUsers.
-   * @param {TaskUserDeleteManyArgs} args - Arguments to filter TaskUsers to delete.
-   * @example
-   * // Delete a few TaskUsers
-   * const { count } = await prisma.taskUser.deleteMany({
-   *   where: {
-   *     // ... provide filter here
-   *   }
-   * })
-   *
-   */
-  deleteMany<T extends TaskUserDeleteManyArgs>(
-    args?: Prisma.SelectSubset<T, TaskUserDeleteManyArgs<ExtArgs>>,
-  ): Prisma.PrismaPromise<Prisma.BatchPayload>
+	/**
+	 * Delete zero or more TaskUsers.
+	 * @param {TaskUserDeleteManyArgs} args - Arguments to filter TaskUsers to delete.
+	 * @example
+	 * // Delete a few TaskUsers
+	 * const { count } = await prisma.taskUser.deleteMany({
+	 *   where: {
+	 *     // ... provide filter here
+	 *   }
+	 * })
+	 *
+	 */
+	deleteMany<T extends TaskUserDeleteManyArgs>(
+		args?: Prisma.SelectSubset<T, TaskUserDeleteManyArgs<ExtArgs>>,
+	): Prisma.PrismaPromise<Prisma.BatchPayload>;
 
-  /**
-   * Update zero or more TaskUsers.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {TaskUserUpdateManyArgs} args - Arguments to update one or more rows.
-   * @example
-   * // Update many TaskUsers
-   * const taskUser = await prisma.taskUser.updateMany({
-   *   where: {
-   *     // ... provide filter here
-   *   },
-   *   data: {
-   *     // ... provide data here
-   *   }
-   * })
-   *
-   */
-  updateMany<T extends TaskUserUpdateManyArgs>(
-    args: Prisma.SelectSubset<T, TaskUserUpdateManyArgs<ExtArgs>>,
-  ): Prisma.PrismaPromise<Prisma.BatchPayload>
+	/**
+	 * Update zero or more TaskUsers.
+	 * Note, that providing `undefined` is treated as the value not being there.
+	 * Read more here: https://pris.ly/d/null-undefined
+	 * @param {TaskUserUpdateManyArgs} args - Arguments to update one or more rows.
+	 * @example
+	 * // Update many TaskUsers
+	 * const taskUser = await prisma.taskUser.updateMany({
+	 *   where: {
+	 *     // ... provide filter here
+	 *   },
+	 *   data: {
+	 *     // ... provide data here
+	 *   }
+	 * })
+	 *
+	 */
+	updateMany<T extends TaskUserUpdateManyArgs>(
+		args: Prisma.SelectSubset<T, TaskUserUpdateManyArgs<ExtArgs>>,
+	): Prisma.PrismaPromise<Prisma.BatchPayload>;
 
-  /**
-   * Update zero or more TaskUsers and returns the data updated in the database.
-   * @param {TaskUserUpdateManyAndReturnArgs} args - Arguments to update many TaskUsers.
-   * @example
-   * // Update many TaskUsers
-   * const taskUser = await prisma.taskUser.updateManyAndReturn({
-   *   where: {
-   *     // ... provide filter here
-   *   },
-   *   data: [
-   *     // ... provide data here
-   *   ]
-   * })
-   *
-   * // Update zero or more TaskUsers and only return the `id`
-   * const taskUserWithIdOnly = await prisma.taskUser.updateManyAndReturn({
-   *   select: { id: true },
-   *   where: {
-   *     // ... provide filter here
-   *   },
-   *   data: [
-   *     // ... provide data here
-   *   ]
-   * })
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   *
-   */
-  updateManyAndReturn<T extends TaskUserUpdateManyAndReturnArgs>(
-    args: Prisma.SelectSubset<T, TaskUserUpdateManyAndReturnArgs<ExtArgs>>,
-  ): Prisma.PrismaPromise<
-    runtime.Types.Result.GetResult<
-      Prisma.$TaskUserPayload<ExtArgs>,
-      T,
-      'updateManyAndReturn',
-      GlobalOmitOptions
-    >
-  >
+	/**
+	 * Update zero or more TaskUsers and returns the data updated in the database.
+	 * @param {TaskUserUpdateManyAndReturnArgs} args - Arguments to update many TaskUsers.
+	 * @example
+	 * // Update many TaskUsers
+	 * const taskUser = await prisma.taskUser.updateManyAndReturn({
+	 *   where: {
+	 *     // ... provide filter here
+	 *   },
+	 *   data: [
+	 *     // ... provide data here
+	 *   ]
+	 * })
+	 *
+	 * // Update zero or more TaskUsers and only return the `id`
+	 * const taskUserWithIdOnly = await prisma.taskUser.updateManyAndReturn({
+	 *   select: { id: true },
+	 *   where: {
+	 *     // ... provide filter here
+	 *   },
+	 *   data: [
+	 *     // ... provide data here
+	 *   ]
+	 * })
+	 * Note, that providing `undefined` is treated as the value not being there.
+	 * Read more here: https://pris.ly/d/null-undefined
+	 *
+	 */
+	updateManyAndReturn<T extends TaskUserUpdateManyAndReturnArgs>(
+		args: Prisma.SelectSubset<T, TaskUserUpdateManyAndReturnArgs<ExtArgs>>,
+	): Prisma.PrismaPromise<
+		runtime.Types.Result.GetResult<
+			Prisma.$TaskUserPayload<ExtArgs>,
+			T,
+			"updateManyAndReturn",
+			GlobalOmitOptions
+		>
+	>;
 
-  /**
-   * Create or update one TaskUser.
-   * @param {TaskUserUpsertArgs} args - Arguments to update or create a TaskUser.
-   * @example
-   * // Update or create a TaskUser
-   * const taskUser = await prisma.taskUser.upsert({
-   *   create: {
-   *     // ... data to create a TaskUser
-   *   },
-   *   update: {
-   *     // ... in case it already exists, update
-   *   },
-   *   where: {
-   *     // ... the filter for the TaskUser we want to update
-   *   }
-   * })
-   */
-  upsert<T extends TaskUserUpsertArgs>(
-    args: Prisma.SelectSubset<T, TaskUserUpsertArgs<ExtArgs>>,
-  ): Prisma.Prisma__TaskUserClient<
-    runtime.Types.Result.GetResult<
-      Prisma.$TaskUserPayload<ExtArgs>,
-      T,
-      'upsert',
-      GlobalOmitOptions
-    >,
-    never,
-    ExtArgs,
-    GlobalOmitOptions
-  >
+	/**
+	 * Create or update one TaskUser.
+	 * @param {TaskUserUpsertArgs} args - Arguments to update or create a TaskUser.
+	 * @example
+	 * // Update or create a TaskUser
+	 * const taskUser = await prisma.taskUser.upsert({
+	 *   create: {
+	 *     // ... data to create a TaskUser
+	 *   },
+	 *   update: {
+	 *     // ... in case it already exists, update
+	 *   },
+	 *   where: {
+	 *     // ... the filter for the TaskUser we want to update
+	 *   }
+	 * })
+	 */
+	upsert<T extends TaskUserUpsertArgs>(
+		args: Prisma.SelectSubset<T, TaskUserUpsertArgs<ExtArgs>>,
+	): Prisma.Prisma__TaskUserClient<
+		runtime.Types.Result.GetResult<
+			Prisma.$TaskUserPayload<ExtArgs>,
+			T,
+			"upsert",
+			GlobalOmitOptions
+		>,
+		never,
+		ExtArgs,
+		GlobalOmitOptions
+	>;
 
-  /**
-   * Count the number of TaskUsers.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {TaskUserCountArgs} args - Arguments to filter TaskUsers to count.
-   * @example
-   * // Count the number of TaskUsers
-   * const count = await prisma.taskUser.count({
-   *   where: {
-   *     // ... the filter for the TaskUsers we want to count
-   *   }
-   * })
-   **/
-  count<T extends TaskUserCountArgs>(
-    args?: Prisma.Subset<T, TaskUserCountArgs>,
-  ): Prisma.PrismaPromise<
-    T extends runtime.Types.Utils.Record<'select', any>
-      ? T['select'] extends true
-        ? number
-        : Prisma.GetScalarType<T['select'], TaskUserCountAggregateOutputType>
-      : number
-  >
+	/**
+	 * Count the number of TaskUsers.
+	 * Note, that providing `undefined` is treated as the value not being there.
+	 * Read more here: https://pris.ly/d/null-undefined
+	 * @param {TaskUserCountArgs} args - Arguments to filter TaskUsers to count.
+	 * @example
+	 * // Count the number of TaskUsers
+	 * const count = await prisma.taskUser.count({
+	 *   where: {
+	 *     // ... the filter for the TaskUsers we want to count
+	 *   }
+	 * })
+	 **/
+	count<T extends TaskUserCountArgs>(
+		args?: Prisma.Subset<T, TaskUserCountArgs>,
+	): Prisma.PrismaPromise<
+		T extends runtime.Types.Utils.Record<"select", any>
+			? T["select"] extends true
+				? number
+				: Prisma.GetScalarType<T["select"], TaskUserCountAggregateOutputType>
+			: number
+	>;
 
-  /**
-   * Allows you to perform aggregations operations on a TaskUser.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {TaskUserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-   * @example
-   * // Ordered by age ascending
-   * // Where email contains prisma.io
-   * // Limited to the 10 users
-   * const aggregations = await prisma.user.aggregate({
-   *   _avg: {
-   *     age: true,
-   *   },
-   *   where: {
-   *     email: {
-   *       contains: "prisma.io",
-   *     },
-   *   },
-   *   orderBy: {
-   *     age: "asc",
-   *   },
-   *   take: 10,
-   * })
-   **/
-  aggregate<T extends TaskUserAggregateArgs>(
-    args: Prisma.Subset<T, TaskUserAggregateArgs>,
-  ): Prisma.PrismaPromise<GetTaskUserAggregateType<T>>
+	/**
+	 * Allows you to perform aggregations operations on a TaskUser.
+	 * Note, that providing `undefined` is treated as the value not being there.
+	 * Read more here: https://pris.ly/d/null-undefined
+	 * @param {TaskUserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+	 * @example
+	 * // Ordered by age ascending
+	 * // Where email contains prisma.io
+	 * // Limited to the 10 users
+	 * const aggregations = await prisma.user.aggregate({
+	 *   _avg: {
+	 *     age: true,
+	 *   },
+	 *   where: {
+	 *     email: {
+	 *       contains: "prisma.io",
+	 *     },
+	 *   },
+	 *   orderBy: {
+	 *     age: "asc",
+	 *   },
+	 *   take: 10,
+	 * })
+	 **/
+	aggregate<T extends TaskUserAggregateArgs>(
+		args: Prisma.Subset<T, TaskUserAggregateArgs>,
+	): Prisma.PrismaPromise<GetTaskUserAggregateType<T>>;
 
-  /**
-   * Group by TaskUser.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {TaskUserGroupByArgs} args - Group by arguments.
-   * @example
-   * // Group by city, order by createdAt, get count
-   * const result = await prisma.user.groupBy({
-   *   by: ['city', 'createdAt'],
-   *   orderBy: {
-   *     createdAt: true
-   *   },
-   *   _count: {
-   *     _all: true
-   *   },
-   * })
-   *
-   **/
-  groupBy<
-    T extends TaskUserGroupByArgs,
-    HasSelectOrTake extends Prisma.Or<
-      Prisma.Extends<'skip', Prisma.Keys<T>>,
-      Prisma.Extends<'take', Prisma.Keys<T>>
-    >,
-    OrderByArg extends (Prisma.True extends HasSelectOrTake
-      ? { orderBy: TaskUserGroupByArgs['orderBy'] }
-      : { orderBy?: TaskUserGroupByArgs['orderBy'] }),
-    OrderFields extends Prisma.ExcludeUnderscoreKeys<
-      Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>
-    >,
-    ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
-    ByValid extends Prisma.Has<ByFields, OrderFields>,
-    HavingFields extends Prisma.GetHavingFields<T['having']>,
-    HavingValid extends Prisma.Has<ByFields, HavingFields>,
-    ByEmpty extends (T['by'] extends never[] ? Prisma.True : Prisma.False),
-    InputErrors extends (ByEmpty extends Prisma.True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends Prisma.False
-        ? {
-            [P in HavingFields]: P extends ByFields
-              ? never
-              : P extends string
-                ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-                : [
-                    Error,
-                    'Field ',
-                    P,
-                    ` in "having" needs to be provided in "by"`,
-                  ]
-          }[HavingFields]
-        : 'take' extends Prisma.Keys<T>
-          ? 'orderBy' extends Prisma.Keys<T>
-            ? ByValid extends Prisma.True
-              ? {}
-              : {
-                  [P in OrderFields]: P extends ByFields
-                    ? never
-                    : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-                }[OrderFields]
-            : 'Error: If you provide "take", you also need to provide "orderBy"'
-          : 'skip' extends Prisma.Keys<T>
-            ? 'orderBy' extends Prisma.Keys<T>
-              ? ByValid extends Prisma.True
-                ? {}
-                : {
-                    [P in OrderFields]: P extends ByFields
-                      ? never
-                      : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-                  }[OrderFields]
-              : 'Error: If you provide "skip", you also need to provide "orderBy"'
-            : ByValid extends Prisma.True
-              ? {}
-              : {
-                  [P in OrderFields]: P extends ByFields
-                    ? never
-                    : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-                }[OrderFields]),
-  >(
-    args: Prisma.SubsetIntersection<T, TaskUserGroupByArgs, OrderByArg> &
-      InputErrors,
-  ): {} extends InputErrors
-    ? GetTaskUserGroupByPayload<T>
-    : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the TaskUser model
-   */
-  readonly fields: TaskUserFieldRefs
+	/**
+	 * Group by TaskUser.
+	 * Note, that providing `undefined` is treated as the value not being there.
+	 * Read more here: https://pris.ly/d/null-undefined
+	 * @param {TaskUserGroupByArgs} args - Group by arguments.
+	 * @example
+	 * // Group by city, order by createdAt, get count
+	 * const result = await prisma.user.groupBy({
+	 *   by: ['city', 'createdAt'],
+	 *   orderBy: {
+	 *     createdAt: true
+	 *   },
+	 *   _count: {
+	 *     _all: true
+	 *   },
+	 * })
+	 *
+	 **/
+	groupBy<
+		T extends TaskUserGroupByArgs,
+		HasSelectOrTake extends Prisma.Or<
+			Prisma.Extends<"skip", Prisma.Keys<T>>,
+			Prisma.Extends<"take", Prisma.Keys<T>>
+		>,
+		OrderByArg extends Prisma.True extends HasSelectOrTake
+			? { orderBy: TaskUserGroupByArgs["orderBy"] }
+			: { orderBy?: TaskUserGroupByArgs["orderBy"] },
+		OrderFields extends Prisma.ExcludeUnderscoreKeys<
+			Prisma.Keys<Prisma.MaybeTupleToUnion<T["orderBy"]>>
+		>,
+		ByFields extends Prisma.MaybeTupleToUnion<T["by"]>,
+		ByValid extends Prisma.Has<ByFields, OrderFields>,
+		HavingFields extends Prisma.GetHavingFields<T["having"]>,
+		HavingValid extends Prisma.Has<ByFields, HavingFields>,
+		ByEmpty extends T["by"] extends never[] ? Prisma.True : Prisma.False,
+		InputErrors extends ByEmpty extends Prisma.True
+			? `Error: "by" must not be empty.`
+			: HavingValid extends Prisma.False
+				? {
+						[P in HavingFields]: P extends ByFields
+							? never
+							: P extends string
+								? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+								: [
+										Error,
+										"Field ",
+										P,
+										` in "having" needs to be provided in "by"`,
+									];
+					}[HavingFields]
+				: "take" extends Prisma.Keys<T>
+					? "orderBy" extends Prisma.Keys<T>
+						? ByValid extends Prisma.True
+							? {}
+							: {
+									[P in OrderFields]: P extends ByFields
+										? never
+										: `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+								}[OrderFields]
+						: 'Error: If you provide "take", you also need to provide "orderBy"'
+					: "skip" extends Prisma.Keys<T>
+						? "orderBy" extends Prisma.Keys<T>
+							? ByValid extends Prisma.True
+								? {}
+								: {
+										[P in OrderFields]: P extends ByFields
+											? never
+											: `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+									}[OrderFields]
+							: 'Error: If you provide "skip", you also need to provide "orderBy"'
+						: ByValid extends Prisma.True
+							? {}
+							: {
+									[P in OrderFields]: P extends ByFields
+										? never
+										: `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+								}[OrderFields],
+	>(
+		args: Prisma.SubsetIntersection<T, TaskUserGroupByArgs, OrderByArg> &
+			InputErrors,
+	): {} extends InputErrors
+		? GetTaskUserGroupByPayload<T>
+		: Prisma.PrismaPromise<InputErrors>;
+	/**
+	 * Fields of the TaskUser model
+	 */
+	readonly fields: TaskUserFieldRefs;
 }
 
 /**
@@ -1293,81 +1303,87 @@ export interface TaskUserDelegate<
  * https://github.com/prisma/prisma-client-js/issues/707
  */
 export interface Prisma__TaskUserClient<
-  T,
-  Null = never,
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
-  GlobalOmitOptions = {},
+	T,
+	Null = never,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
+	GlobalOmitOptions = {},
 > extends Prisma.PrismaPromise<T> {
-  readonly [Symbol.toStringTag]: 'PrismaPromise'
-  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(
-    args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>,
-  ): Prisma.Prisma__UserClient<
-    | runtime.Types.Result.GetResult<
-        Prisma.$UserPayload<ExtArgs>,
-        T,
-        'findUniqueOrThrow',
-        GlobalOmitOptions
-      >
-    | Null,
-    Null,
-    ExtArgs,
-    GlobalOmitOptions
-  >
-  task<T extends Prisma.TaskDefaultArgs<ExtArgs> = {}>(
-    args?: Prisma.Subset<T, Prisma.TaskDefaultArgs<ExtArgs>>,
-  ): Prisma.Prisma__TaskClient<
-    | runtime.Types.Result.GetResult<
-        Prisma.$TaskPayload<ExtArgs>,
-        T,
-        'findUniqueOrThrow',
-        GlobalOmitOptions
-      >
-    | Null,
-    Null,
-    ExtArgs,
-    GlobalOmitOptions
-  >
-  /**
-   * Attaches callbacks for the resolution and/or rejection of the Promise.
-   * @param onfulfilled The callback to execute when the Promise is resolved.
-   * @param onrejected The callback to execute when the Promise is rejected.
-   * @returns A Promise for the completion of which ever callback is executed.
-   */
-  then<TResult1 = T, TResult2 = never>(
-    onfulfilled?:
-      ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null,
-    onrejected?:
-      ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null,
-  ): runtime.Types.Utils.JsPromise<TResult1 | TResult2>
-  /**
-   * Attaches a callback for only the rejection of the Promise.
-   * @param onrejected The callback to execute when the Promise is rejected.
-   * @returns A Promise for the completion of the callback.
-   */
-  catch<TResult = never>(
-    onrejected?:
-      ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null,
-  ): runtime.Types.Utils.JsPromise<T | TResult>
-  /**
-   * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-   * resolved value cannot be modified from the callback.
-   * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-   * @returns A Promise for the completion of the callback.
-   */
-  finally(
-    onfinally?: (() => void) | undefined | null,
-  ): runtime.Types.Utils.JsPromise<T>
+	readonly [Symbol.toStringTag]: "PrismaPromise";
+	user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(
+		args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>,
+	): Prisma.Prisma__UserClient<
+		| runtime.Types.Result.GetResult<
+				Prisma.$UserPayload<ExtArgs>,
+				T,
+				"findUniqueOrThrow",
+				GlobalOmitOptions
+		  >
+		| Null,
+		Null,
+		ExtArgs,
+		GlobalOmitOptions
+	>;
+	task<T extends Prisma.TaskDefaultArgs<ExtArgs> = {}>(
+		args?: Prisma.Subset<T, Prisma.TaskDefaultArgs<ExtArgs>>,
+	): Prisma.Prisma__TaskClient<
+		| runtime.Types.Result.GetResult<
+				Prisma.$TaskPayload<ExtArgs>,
+				T,
+				"findUniqueOrThrow",
+				GlobalOmitOptions
+		  >
+		| Null,
+		Null,
+		ExtArgs,
+		GlobalOmitOptions
+	>;
+	/**
+	 * Attaches callbacks for the resolution and/or rejection of the Promise.
+	 * @param onfulfilled The callback to execute when the Promise is resolved.
+	 * @param onrejected The callback to execute when the Promise is rejected.
+	 * @returns A Promise for the completion of which ever callback is executed.
+	 */
+	then<TResult1 = T, TResult2 = never>(
+		onfulfilled?:
+			| ((value: T) => TResult1 | PromiseLike<TResult1>)
+			| undefined
+			| null,
+		onrejected?:
+			| ((reason: any) => TResult2 | PromiseLike<TResult2>)
+			| undefined
+			| null,
+	): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+	/**
+	 * Attaches a callback for only the rejection of the Promise.
+	 * @param onrejected The callback to execute when the Promise is rejected.
+	 * @returns A Promise for the completion of the callback.
+	 */
+	catch<TResult = never>(
+		onrejected?:
+			| ((reason: any) => TResult | PromiseLike<TResult>)
+			| undefined
+			| null,
+	): runtime.Types.Utils.JsPromise<T | TResult>;
+	/**
+	 * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+	 * resolved value cannot be modified from the callback.
+	 * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+	 * @returns A Promise for the completion of the callback.
+	 */
+	finally(
+		onfinally?: (() => void) | undefined | null,
+	): runtime.Types.Utils.JsPromise<T>;
 }
 
 /**
  * Fields of the TaskUser model
  */
 export interface TaskUserFieldRefs {
-  readonly id: Prisma.FieldRef<'TaskUser', 'String'>
-  readonly userId: Prisma.FieldRef<'TaskUser', 'String'>
-  readonly taskId: Prisma.FieldRef<'TaskUser', 'String'>
-  readonly assignedAt: Prisma.FieldRef<'TaskUser', 'DateTime'>
+	readonly id: Prisma.FieldRef<"TaskUser", "String">;
+	readonly userId: Prisma.FieldRef<"TaskUser", "String">;
+	readonly taskId: Prisma.FieldRef<"TaskUser", "String">;
+	readonly assignedAt: Prisma.FieldRef<"TaskUser", "DateTime">;
 }
 
 // Custom InputTypes
@@ -1375,481 +1391,481 @@ export interface TaskUserFieldRefs {
  * TaskUser findUnique
  */
 export type TaskUserFindUniqueArgs<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  /**
-   * Select specific fields to fetch from the TaskUser
-   */
-  select?: Prisma.TaskUserSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the TaskUser
-   */
-  omit?: Prisma.TaskUserOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.TaskUserInclude<ExtArgs> | null
-  /**
-   * Filter, which TaskUser to fetch.
-   */
-  where: Prisma.TaskUserWhereUniqueInput
-}
+	/**
+	 * Select specific fields to fetch from the TaskUser
+	 */
+	select?: Prisma.TaskUserSelect<ExtArgs> | null;
+	/**
+	 * Omit specific fields from the TaskUser
+	 */
+	omit?: Prisma.TaskUserOmit<ExtArgs> | null;
+	/**
+	 * Choose, which related nodes to fetch as well
+	 */
+	include?: Prisma.TaskUserInclude<ExtArgs> | null;
+	/**
+	 * Filter, which TaskUser to fetch.
+	 */
+	where: Prisma.TaskUserWhereUniqueInput;
+};
 
 /**
  * TaskUser findUniqueOrThrow
  */
 export type TaskUserFindUniqueOrThrowArgs<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  /**
-   * Select specific fields to fetch from the TaskUser
-   */
-  select?: Prisma.TaskUserSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the TaskUser
-   */
-  omit?: Prisma.TaskUserOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.TaskUserInclude<ExtArgs> | null
-  /**
-   * Filter, which TaskUser to fetch.
-   */
-  where: Prisma.TaskUserWhereUniqueInput
-}
+	/**
+	 * Select specific fields to fetch from the TaskUser
+	 */
+	select?: Prisma.TaskUserSelect<ExtArgs> | null;
+	/**
+	 * Omit specific fields from the TaskUser
+	 */
+	omit?: Prisma.TaskUserOmit<ExtArgs> | null;
+	/**
+	 * Choose, which related nodes to fetch as well
+	 */
+	include?: Prisma.TaskUserInclude<ExtArgs> | null;
+	/**
+	 * Filter, which TaskUser to fetch.
+	 */
+	where: Prisma.TaskUserWhereUniqueInput;
+};
 
 /**
  * TaskUser findFirst
  */
 export type TaskUserFindFirstArgs<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  /**
-   * Select specific fields to fetch from the TaskUser
-   */
-  select?: Prisma.TaskUserSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the TaskUser
-   */
-  omit?: Prisma.TaskUserOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.TaskUserInclude<ExtArgs> | null
-  /**
-   * Filter, which TaskUser to fetch.
-   */
-  where?: Prisma.TaskUserWhereInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-   *
-   * Determine the order of TaskUsers to fetch.
-   */
-  orderBy?:
-    | Prisma.TaskUserOrderByWithRelationInput
-    | Prisma.TaskUserOrderByWithRelationInput[]
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-   *
-   * Sets the position for searching for TaskUsers.
-   */
-  cursor?: Prisma.TaskUserWhereUniqueInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   *
-   * Take `±n` TaskUsers from the position of the cursor.
-   */
-  take?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   *
-   * Skip the first `n` TaskUsers.
-   */
-  skip?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-   *
-   * Filter by unique combinations of TaskUsers.
-   */
-  distinct?: Prisma.TaskUserScalarFieldEnum | Prisma.TaskUserScalarFieldEnum[]
-}
+	/**
+	 * Select specific fields to fetch from the TaskUser
+	 */
+	select?: Prisma.TaskUserSelect<ExtArgs> | null;
+	/**
+	 * Omit specific fields from the TaskUser
+	 */
+	omit?: Prisma.TaskUserOmit<ExtArgs> | null;
+	/**
+	 * Choose, which related nodes to fetch as well
+	 */
+	include?: Prisma.TaskUserInclude<ExtArgs> | null;
+	/**
+	 * Filter, which TaskUser to fetch.
+	 */
+	where?: Prisma.TaskUserWhereInput;
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+	 *
+	 * Determine the order of TaskUsers to fetch.
+	 */
+	orderBy?:
+		| Prisma.TaskUserOrderByWithRelationInput
+		| Prisma.TaskUserOrderByWithRelationInput[];
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+	 *
+	 * Sets the position for searching for TaskUsers.
+	 */
+	cursor?: Prisma.TaskUserWhereUniqueInput;
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+	 *
+	 * Take `±n` TaskUsers from the position of the cursor.
+	 */
+	take?: number;
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+	 *
+	 * Skip the first `n` TaskUsers.
+	 */
+	skip?: number;
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+	 *
+	 * Filter by unique combinations of TaskUsers.
+	 */
+	distinct?: Prisma.TaskUserScalarFieldEnum | Prisma.TaskUserScalarFieldEnum[];
+};
 
 /**
  * TaskUser findFirstOrThrow
  */
 export type TaskUserFindFirstOrThrowArgs<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  /**
-   * Select specific fields to fetch from the TaskUser
-   */
-  select?: Prisma.TaskUserSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the TaskUser
-   */
-  omit?: Prisma.TaskUserOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.TaskUserInclude<ExtArgs> | null
-  /**
-   * Filter, which TaskUser to fetch.
-   */
-  where?: Prisma.TaskUserWhereInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-   *
-   * Determine the order of TaskUsers to fetch.
-   */
-  orderBy?:
-    | Prisma.TaskUserOrderByWithRelationInput
-    | Prisma.TaskUserOrderByWithRelationInput[]
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-   *
-   * Sets the position for searching for TaskUsers.
-   */
-  cursor?: Prisma.TaskUserWhereUniqueInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   *
-   * Take `±n` TaskUsers from the position of the cursor.
-   */
-  take?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   *
-   * Skip the first `n` TaskUsers.
-   */
-  skip?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-   *
-   * Filter by unique combinations of TaskUsers.
-   */
-  distinct?: Prisma.TaskUserScalarFieldEnum | Prisma.TaskUserScalarFieldEnum[]
-}
+	/**
+	 * Select specific fields to fetch from the TaskUser
+	 */
+	select?: Prisma.TaskUserSelect<ExtArgs> | null;
+	/**
+	 * Omit specific fields from the TaskUser
+	 */
+	omit?: Prisma.TaskUserOmit<ExtArgs> | null;
+	/**
+	 * Choose, which related nodes to fetch as well
+	 */
+	include?: Prisma.TaskUserInclude<ExtArgs> | null;
+	/**
+	 * Filter, which TaskUser to fetch.
+	 */
+	where?: Prisma.TaskUserWhereInput;
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+	 *
+	 * Determine the order of TaskUsers to fetch.
+	 */
+	orderBy?:
+		| Prisma.TaskUserOrderByWithRelationInput
+		| Prisma.TaskUserOrderByWithRelationInput[];
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+	 *
+	 * Sets the position for searching for TaskUsers.
+	 */
+	cursor?: Prisma.TaskUserWhereUniqueInput;
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+	 *
+	 * Take `±n` TaskUsers from the position of the cursor.
+	 */
+	take?: number;
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+	 *
+	 * Skip the first `n` TaskUsers.
+	 */
+	skip?: number;
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+	 *
+	 * Filter by unique combinations of TaskUsers.
+	 */
+	distinct?: Prisma.TaskUserScalarFieldEnum | Prisma.TaskUserScalarFieldEnum[];
+};
 
 /**
  * TaskUser findMany
  */
 export type TaskUserFindManyArgs<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  /**
-   * Select specific fields to fetch from the TaskUser
-   */
-  select?: Prisma.TaskUserSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the TaskUser
-   */
-  omit?: Prisma.TaskUserOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.TaskUserInclude<ExtArgs> | null
-  /**
-   * Filter, which TaskUsers to fetch.
-   */
-  where?: Prisma.TaskUserWhereInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-   *
-   * Determine the order of TaskUsers to fetch.
-   */
-  orderBy?:
-    | Prisma.TaskUserOrderByWithRelationInput
-    | Prisma.TaskUserOrderByWithRelationInput[]
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-   *
-   * Sets the position for listing TaskUsers.
-   */
-  cursor?: Prisma.TaskUserWhereUniqueInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   *
-   * Take `±n` TaskUsers from the position of the cursor.
-   */
-  take?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   *
-   * Skip the first `n` TaskUsers.
-   */
-  skip?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-   *
-   * Filter by unique combinations of TaskUsers.
-   */
-  distinct?: Prisma.TaskUserScalarFieldEnum | Prisma.TaskUserScalarFieldEnum[]
-}
+	/**
+	 * Select specific fields to fetch from the TaskUser
+	 */
+	select?: Prisma.TaskUserSelect<ExtArgs> | null;
+	/**
+	 * Omit specific fields from the TaskUser
+	 */
+	omit?: Prisma.TaskUserOmit<ExtArgs> | null;
+	/**
+	 * Choose, which related nodes to fetch as well
+	 */
+	include?: Prisma.TaskUserInclude<ExtArgs> | null;
+	/**
+	 * Filter, which TaskUsers to fetch.
+	 */
+	where?: Prisma.TaskUserWhereInput;
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+	 *
+	 * Determine the order of TaskUsers to fetch.
+	 */
+	orderBy?:
+		| Prisma.TaskUserOrderByWithRelationInput
+		| Prisma.TaskUserOrderByWithRelationInput[];
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+	 *
+	 * Sets the position for listing TaskUsers.
+	 */
+	cursor?: Prisma.TaskUserWhereUniqueInput;
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+	 *
+	 * Take `±n` TaskUsers from the position of the cursor.
+	 */
+	take?: number;
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+	 *
+	 * Skip the first `n` TaskUsers.
+	 */
+	skip?: number;
+	/**
+	 * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+	 *
+	 * Filter by unique combinations of TaskUsers.
+	 */
+	distinct?: Prisma.TaskUserScalarFieldEnum | Prisma.TaskUserScalarFieldEnum[];
+};
 
 /**
  * TaskUser create
  */
 export type TaskUserCreateArgs<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  /**
-   * Select specific fields to fetch from the TaskUser
-   */
-  select?: Prisma.TaskUserSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the TaskUser
-   */
-  omit?: Prisma.TaskUserOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.TaskUserInclude<ExtArgs> | null
-  /**
-   * The data needed to create a TaskUser.
-   */
-  data: Prisma.XOR<
-    Prisma.TaskUserCreateInput,
-    Prisma.TaskUserUncheckedCreateInput
-  >
-}
+	/**
+	 * Select specific fields to fetch from the TaskUser
+	 */
+	select?: Prisma.TaskUserSelect<ExtArgs> | null;
+	/**
+	 * Omit specific fields from the TaskUser
+	 */
+	omit?: Prisma.TaskUserOmit<ExtArgs> | null;
+	/**
+	 * Choose, which related nodes to fetch as well
+	 */
+	include?: Prisma.TaskUserInclude<ExtArgs> | null;
+	/**
+	 * The data needed to create a TaskUser.
+	 */
+	data: Prisma.XOR<
+		Prisma.TaskUserCreateInput,
+		Prisma.TaskUserUncheckedCreateInput
+	>;
+};
 
 /**
  * TaskUser createMany
  */
 export type TaskUserCreateManyArgs<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  /**
-   * The data used to create many TaskUsers.
-   */
-  data: Prisma.TaskUserCreateManyInput | Prisma.TaskUserCreateManyInput[]
-  skipDuplicates?: boolean
-}
+	/**
+	 * The data used to create many TaskUsers.
+	 */
+	data: Prisma.TaskUserCreateManyInput | Prisma.TaskUserCreateManyInput[];
+	skipDuplicates?: boolean;
+};
 
 /**
  * TaskUser createManyAndReturn
  */
 export type TaskUserCreateManyAndReturnArgs<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  /**
-   * Select specific fields to fetch from the TaskUser
-   */
-  select?: Prisma.TaskUserSelectCreateManyAndReturn<ExtArgs> | null
-  /**
-   * Omit specific fields from the TaskUser
-   */
-  omit?: Prisma.TaskUserOmit<ExtArgs> | null
-  /**
-   * The data used to create many TaskUsers.
-   */
-  data: Prisma.TaskUserCreateManyInput | Prisma.TaskUserCreateManyInput[]
-  skipDuplicates?: boolean
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.TaskUserIncludeCreateManyAndReturn<ExtArgs> | null
-}
+	/**
+	 * Select specific fields to fetch from the TaskUser
+	 */
+	select?: Prisma.TaskUserSelectCreateManyAndReturn<ExtArgs> | null;
+	/**
+	 * Omit specific fields from the TaskUser
+	 */
+	omit?: Prisma.TaskUserOmit<ExtArgs> | null;
+	/**
+	 * The data used to create many TaskUsers.
+	 */
+	data: Prisma.TaskUserCreateManyInput | Prisma.TaskUserCreateManyInput[];
+	skipDuplicates?: boolean;
+	/**
+	 * Choose, which related nodes to fetch as well
+	 */
+	include?: Prisma.TaskUserIncludeCreateManyAndReturn<ExtArgs> | null;
+};
 
 /**
  * TaskUser update
  */
 export type TaskUserUpdateArgs<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  /**
-   * Select specific fields to fetch from the TaskUser
-   */
-  select?: Prisma.TaskUserSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the TaskUser
-   */
-  omit?: Prisma.TaskUserOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.TaskUserInclude<ExtArgs> | null
-  /**
-   * The data needed to update a TaskUser.
-   */
-  data: Prisma.XOR<
-    Prisma.TaskUserUpdateInput,
-    Prisma.TaskUserUncheckedUpdateInput
-  >
-  /**
-   * Choose, which TaskUser to update.
-   */
-  where: Prisma.TaskUserWhereUniqueInput
-}
+	/**
+	 * Select specific fields to fetch from the TaskUser
+	 */
+	select?: Prisma.TaskUserSelect<ExtArgs> | null;
+	/**
+	 * Omit specific fields from the TaskUser
+	 */
+	omit?: Prisma.TaskUserOmit<ExtArgs> | null;
+	/**
+	 * Choose, which related nodes to fetch as well
+	 */
+	include?: Prisma.TaskUserInclude<ExtArgs> | null;
+	/**
+	 * The data needed to update a TaskUser.
+	 */
+	data: Prisma.XOR<
+		Prisma.TaskUserUpdateInput,
+		Prisma.TaskUserUncheckedUpdateInput
+	>;
+	/**
+	 * Choose, which TaskUser to update.
+	 */
+	where: Prisma.TaskUserWhereUniqueInput;
+};
 
 /**
  * TaskUser updateMany
  */
 export type TaskUserUpdateManyArgs<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  /**
-   * The data used to update TaskUsers.
-   */
-  data: Prisma.XOR<
-    Prisma.TaskUserUpdateManyMutationInput,
-    Prisma.TaskUserUncheckedUpdateManyInput
-  >
-  /**
-   * Filter which TaskUsers to update
-   */
-  where?: Prisma.TaskUserWhereInput
-  /**
-   * Limit how many TaskUsers to update.
-   */
-  limit?: number
-}
+	/**
+	 * The data used to update TaskUsers.
+	 */
+	data: Prisma.XOR<
+		Prisma.TaskUserUpdateManyMutationInput,
+		Prisma.TaskUserUncheckedUpdateManyInput
+	>;
+	/**
+	 * Filter which TaskUsers to update
+	 */
+	where?: Prisma.TaskUserWhereInput;
+	/**
+	 * Limit how many TaskUsers to update.
+	 */
+	limit?: number;
+};
 
 /**
  * TaskUser updateManyAndReturn
  */
 export type TaskUserUpdateManyAndReturnArgs<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  /**
-   * Select specific fields to fetch from the TaskUser
-   */
-  select?: Prisma.TaskUserSelectUpdateManyAndReturn<ExtArgs> | null
-  /**
-   * Omit specific fields from the TaskUser
-   */
-  omit?: Prisma.TaskUserOmit<ExtArgs> | null
-  /**
-   * The data used to update TaskUsers.
-   */
-  data: Prisma.XOR<
-    Prisma.TaskUserUpdateManyMutationInput,
-    Prisma.TaskUserUncheckedUpdateManyInput
-  >
-  /**
-   * Filter which TaskUsers to update
-   */
-  where?: Prisma.TaskUserWhereInput
-  /**
-   * Limit how many TaskUsers to update.
-   */
-  limit?: number
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.TaskUserIncludeUpdateManyAndReturn<ExtArgs> | null
-}
+	/**
+	 * Select specific fields to fetch from the TaskUser
+	 */
+	select?: Prisma.TaskUserSelectUpdateManyAndReturn<ExtArgs> | null;
+	/**
+	 * Omit specific fields from the TaskUser
+	 */
+	omit?: Prisma.TaskUserOmit<ExtArgs> | null;
+	/**
+	 * The data used to update TaskUsers.
+	 */
+	data: Prisma.XOR<
+		Prisma.TaskUserUpdateManyMutationInput,
+		Prisma.TaskUserUncheckedUpdateManyInput
+	>;
+	/**
+	 * Filter which TaskUsers to update
+	 */
+	where?: Prisma.TaskUserWhereInput;
+	/**
+	 * Limit how many TaskUsers to update.
+	 */
+	limit?: number;
+	/**
+	 * Choose, which related nodes to fetch as well
+	 */
+	include?: Prisma.TaskUserIncludeUpdateManyAndReturn<ExtArgs> | null;
+};
 
 /**
  * TaskUser upsert
  */
 export type TaskUserUpsertArgs<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  /**
-   * Select specific fields to fetch from the TaskUser
-   */
-  select?: Prisma.TaskUserSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the TaskUser
-   */
-  omit?: Prisma.TaskUserOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.TaskUserInclude<ExtArgs> | null
-  /**
-   * The filter to search for the TaskUser to update in case it exists.
-   */
-  where: Prisma.TaskUserWhereUniqueInput
-  /**
-   * In case the TaskUser found by the `where` argument doesn't exist, create a new TaskUser with this data.
-   */
-  create: Prisma.XOR<
-    Prisma.TaskUserCreateInput,
-    Prisma.TaskUserUncheckedCreateInput
-  >
-  /**
-   * In case the TaskUser was found with the provided `where` argument, update it with this data.
-   */
-  update: Prisma.XOR<
-    Prisma.TaskUserUpdateInput,
-    Prisma.TaskUserUncheckedUpdateInput
-  >
-}
+	/**
+	 * Select specific fields to fetch from the TaskUser
+	 */
+	select?: Prisma.TaskUserSelect<ExtArgs> | null;
+	/**
+	 * Omit specific fields from the TaskUser
+	 */
+	omit?: Prisma.TaskUserOmit<ExtArgs> | null;
+	/**
+	 * Choose, which related nodes to fetch as well
+	 */
+	include?: Prisma.TaskUserInclude<ExtArgs> | null;
+	/**
+	 * The filter to search for the TaskUser to update in case it exists.
+	 */
+	where: Prisma.TaskUserWhereUniqueInput;
+	/**
+	 * In case the TaskUser found by the `where` argument doesn't exist, create a new TaskUser with this data.
+	 */
+	create: Prisma.XOR<
+		Prisma.TaskUserCreateInput,
+		Prisma.TaskUserUncheckedCreateInput
+	>;
+	/**
+	 * In case the TaskUser was found with the provided `where` argument, update it with this data.
+	 */
+	update: Prisma.XOR<
+		Prisma.TaskUserUpdateInput,
+		Prisma.TaskUserUncheckedUpdateInput
+	>;
+};
 
 /**
  * TaskUser delete
  */
 export type TaskUserDeleteArgs<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  /**
-   * Select specific fields to fetch from the TaskUser
-   */
-  select?: Prisma.TaskUserSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the TaskUser
-   */
-  omit?: Prisma.TaskUserOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.TaskUserInclude<ExtArgs> | null
-  /**
-   * Filter which TaskUser to delete.
-   */
-  where: Prisma.TaskUserWhereUniqueInput
-}
+	/**
+	 * Select specific fields to fetch from the TaskUser
+	 */
+	select?: Prisma.TaskUserSelect<ExtArgs> | null;
+	/**
+	 * Omit specific fields from the TaskUser
+	 */
+	omit?: Prisma.TaskUserOmit<ExtArgs> | null;
+	/**
+	 * Choose, which related nodes to fetch as well
+	 */
+	include?: Prisma.TaskUserInclude<ExtArgs> | null;
+	/**
+	 * Filter which TaskUser to delete.
+	 */
+	where: Prisma.TaskUserWhereUniqueInput;
+};
 
 /**
  * TaskUser deleteMany
  */
 export type TaskUserDeleteManyArgs<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  /**
-   * Filter which TaskUsers to delete
-   */
-  where?: Prisma.TaskUserWhereInput
-  /**
-   * Limit how many TaskUsers to delete.
-   */
-  limit?: number
-}
+	/**
+	 * Filter which TaskUsers to delete
+	 */
+	where?: Prisma.TaskUserWhereInput;
+	/**
+	 * Limit how many TaskUsers to delete.
+	 */
+	limit?: number;
+};
 
 /**
  * TaskUser without action
  */
 export type TaskUserDefaultArgs<
-  ExtArgs extends runtime.Types.Extensions.InternalArgs =
-    runtime.Types.Extensions.DefaultArgs,
+	ExtArgs extends
+		runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs,
 > = {
-  /**
-   * Select specific fields to fetch from the TaskUser
-   */
-  select?: Prisma.TaskUserSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the TaskUser
-   */
-  omit?: Prisma.TaskUserOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.TaskUserInclude<ExtArgs> | null
-}
+	/**
+	 * Select specific fields to fetch from the TaskUser
+	 */
+	select?: Prisma.TaskUserSelect<ExtArgs> | null;
+	/**
+	 * Omit specific fields from the TaskUser
+	 */
+	omit?: Prisma.TaskUserOmit<ExtArgs> | null;
+	/**
+	 * Choose, which related nodes to fetch as well
+	 */
+	include?: Prisma.TaskUserInclude<ExtArgs> | null;
+};

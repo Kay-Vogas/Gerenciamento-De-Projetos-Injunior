@@ -1,22 +1,22 @@
-import { makeDeleteProject } from '@/use-cases/projects/factories-projects/make-delete.js'
-import type { FastifyReply, FastifyRequest } from 'fastify'
-import z from 'zod'
+import type { FastifyReply, FastifyRequest } from "fastify";
+import z from "zod";
+import { makeDeleteProject } from "@/use-cases/projects/factories-projects/make-delete.js";
 
 export async function deleteProject(
-  request: FastifyRequest,
-  reply: FastifyReply,
+	request: FastifyRequest,
+	reply: FastifyReply,
 ) {
-  try {
-    const deleteProjectParamsSchema = z.object({
-      id: z.string(),
-    })
+	try {
+		const deleteProjectParamsSchema = z.object({
+			id: z.string(),
+		});
 
-    const { id } = deleteProjectParamsSchema.parse(request.params)
+		const { id } = deleteProjectParamsSchema.parse(request.params);
 
-    await makeDeleteProject().execute({ id })
+		await makeDeleteProject().execute({ id });
 
-    return reply.status(204).send()
-  } catch (error) {
-    throw new Error(`Erro ao deletar o projeto: ${error}`)
-  }
+		return reply.status(204).send();
+	} catch (error) {
+		throw new Error(`Erro ao deletar o projeto: ${error}`);
+	}
 }

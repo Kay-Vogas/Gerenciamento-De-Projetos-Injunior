@@ -1,44 +1,44 @@
-import type { Task, USER_ROLE } from '@/@types/prisma/client.js'
-import type { TasksRepository } from '@/repositories/tasks-repository.js'
-import { NotAllowedError } from '../error/not-allow-error.js'
-import { ResourceNotFoundError } from '../error/resource-not-found-error.js'
+import type { Task, USER_ROLE } from "@/@types/prisma/client.js";
+import type { TasksRepository } from "@/repositories/tasks-repository.js";
+import { NotAllowedError } from "../error/not-allow-error.js";
+import { ResourceNotFoundError } from "../error/resource-not-found-error.js";
 
 interface CompleteTaskUseCaseRequest {
-  taskId: string
-  userId: string
-  userRole: USER_ROLE
+	taskId: string;
+	userId: string;
+	userRole: USER_ROLE;
 }
 
 interface CompleteTaskUseCaseResponse {
-  task: Task
+	task: Task;
 }
 
 export class CompleteTaskUseCase {
-  constructor(private tasksRepository: TasksRepository) {}
+	constructor(private tasksRepository: TasksRepository) {}
 
-  async execute({
-    taskId,
-    userId,
-    userRole,
-  }: CompleteTaskUseCaseRequest): Promise<CompleteTaskUseCaseResponse> {
-    const task = await this.tasksRepository.findByIdWithUsers(taskId)
+	async execute({
+		taskId,
+		userId,
+		userRole,
+	}: CompleteTaskUseCaseRequest): Promise<CompleteTaskUseCaseResponse> {
+		const task = await this.tasksRepository.findByIdWithUsers(taskId);
 
-    if (!task) {
-      throw new ResourceNotFoundError();    
-    }
-    
-    const isAdmin = userRole === 'ADMIN'
+		if (!task) {
+			throw new ResourceNotFoundError();
+		}
 
-    const isAssigned = task.taskUser.some((tu) => tu.userId === userId)
+		const isAdmin = userRole === "ADMIN";
 
-    if (!isAdmin && !isAssigned) {
-      throw new NotAllowedError();
-    }
+		const isAssigned = task.taskUser.some((tu) => tu.userId === userId);
 
-    const updatedTask = await this.tasksRepository.update(taskId, {
-      completed: true,
-    })
+		if (!isAdmin && !isAssigned) {
+			throw new NotAllowedError();
+		}
 
-    return { task: updatedTask }
-  }
+		const updatedTask = await this.tasksRepository.update(taskId, {
+			completed: true,
+		});
+
+		return { task: updatedTask };
+	}
 }

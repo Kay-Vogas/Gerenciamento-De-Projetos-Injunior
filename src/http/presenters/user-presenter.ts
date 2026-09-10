@@ -1,27 +1,27 @@
-import type { User } from '@/@types/prisma/client.js'
+import type { User } from "@/@types/prisma/client.js";
 
 type HTTPUser = {
-  id: string
-  name: string
-  email: string
-  createdAt: Date
-  updatedAt: Date
-}
+	id: string;
+	name: string;
+	email: string;
+	createdAt: Date;
+	updatedAt: Date;
+};
 
 export class UserPresenter {
-  static toHTTP(user: User): HTTPUser
-  static toHTTP(users: User[]): HTTPUser[]
-  static toHTTP(input: User | User[]): HTTPUser | HTTPUser[] {
-    if (Array.isArray(input)) {
-      return input.map((user) => this.toHTTP(user))
-    }
+	static toHTTP(user: User): HTTPUser;
+	static toHTTP(users: User[]): HTTPUser[];
+	static toHTTP(input: User | User[]): HTTPUser | HTTPUser[] {
+		if (Array.isArray(input)) {
+			return input.map((user) => this.toHTTP(user));
+		}
 
-    return {
-      id: input.id,
-      name: input.name,
-      email: input.email,
-      createdAt: input.createdAt,
-      updatedAt: input.updatedAt,
-    }
-  }
+		return {
+			id: input.id,
+			name: input.name,
+			email: input.email,
+			createdAt: input.createdAt,
+			updatedAt: input.updatedAt,
+		};
+	}
 }

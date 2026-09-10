@@ -14,133 +14,133 @@
  * model files in the `model` directory!
  */
 
-import * as runtime from '@prisma/client/runtime/index-browser'
+import * as runtime from "@prisma/client/runtime/index-browser";
 
-export type * from '../models.js'
-export type * from './prismaNamespace.js'
+export type * from "../models.js";
+export type * from "./prismaNamespace.js";
 
-export const Decimal = runtime.Decimal
+export const Decimal = runtime.Decimal;
 
 export const NullTypes = {
-  DbNull: runtime.NullTypes.DbNull as new (
-    secret: never,
-  ) => typeof runtime.DbNull,
-  JsonNull: runtime.NullTypes.JsonNull as new (
-    secret: never,
-  ) => typeof runtime.JsonNull,
-  AnyNull: runtime.NullTypes.AnyNull as new (
-    secret: never,
-  ) => typeof runtime.AnyNull,
-}
+	DbNull: runtime.NullTypes.DbNull as new (
+		secret: never,
+	) => typeof runtime.DbNull,
+	JsonNull: runtime.NullTypes.JsonNull as new (
+		secret: never,
+	) => typeof runtime.JsonNull,
+	AnyNull: runtime.NullTypes.AnyNull as new (
+		secret: never,
+	) => typeof runtime.AnyNull,
+};
 /**
  * Helper for filtering JSON entries that have `null` on the database (empty on the db)
  *
  * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
  */
-export const DbNull = runtime.DbNull
+export const DbNull = runtime.DbNull;
 
 /**
  * Helper for filtering JSON entries that have JSON `null` values (not empty on the db)
  *
  * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
  */
-export const JsonNull = runtime.JsonNull
+export const JsonNull = runtime.JsonNull;
 
 /**
  * Helper for filtering JSON entries that are `Prisma.DbNull` or `Prisma.JsonNull`
  *
  * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
  */
-export const AnyNull = runtime.AnyNull
+export const AnyNull = runtime.AnyNull;
 
 export const ModelName = {
-  Project: 'Project',
-  User: 'User',
-  Task: 'Task',
-  TaskUser: 'TaskUser',
-} as const
+	Project: "Project",
+	User: "User",
+	Task: "Task",
+	TaskUser: "TaskUser",
+} as const;
 
-export type ModelName = (typeof ModelName)[keyof typeof ModelName]
+export type ModelName = (typeof ModelName)[keyof typeof ModelName];
 
 /*
  * Enums
  */
 
 export const TransactionIsolationLevel = runtime.makeStrictEnum({
-  ReadUncommitted: 'ReadUncommitted',
-  ReadCommitted: 'ReadCommitted',
-  RepeatableRead: 'RepeatableRead',
-  Serializable: 'Serializable',
-} as const)
+	ReadUncommitted: "ReadUncommitted",
+	ReadCommitted: "ReadCommitted",
+	RepeatableRead: "RepeatableRead",
+	Serializable: "Serializable",
+} as const);
 
 export type TransactionIsolationLevel =
-  (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
+	(typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel];
 
 export const ProjectScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description',
-  status: 'status',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-} as const
+	id: "id",
+	name: "name",
+	description: "description",
+	status: "status",
+	createdAt: "createdAt",
+	updatedAt: "updatedAt",
+} as const;
 
 export type ProjectScalarFieldEnum =
-  (typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum]
+	(typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum];
 
 export const UserScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  email: 'email',
-  password: 'password',
-  role: 'role',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-} as const
+	id: "id",
+	name: "name",
+	email: "email",
+	password: "password",
+	role: "role",
+	createdAt: "createdAt",
+	updatedAt: "updatedAt",
+} as const;
 
 export type UserScalarFieldEnum =
-  (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+	(typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum];
 
 export const TaskScalarFieldEnum = {
-  id: 'id',
-  title: 'title',
-  description: 'description',
-  priority: 'priority',
-  completed: 'completed',
-  deadline: 'deadline',
-  projectId: 'projectId',
-} as const
+	id: "id",
+	title: "title",
+	description: "description",
+	priority: "priority",
+	completed: "completed",
+	deadline: "deadline",
+	projectId: "projectId",
+} as const;
 
 export type TaskScalarFieldEnum =
-  (typeof TaskScalarFieldEnum)[keyof typeof TaskScalarFieldEnum]
+	(typeof TaskScalarFieldEnum)[keyof typeof TaskScalarFieldEnum];
 
 export const TaskUserScalarFieldEnum = {
-  id: 'id',
-  userId: 'userId',
-  taskId: 'taskId',
-  assignedAt: 'assignedAt',
-} as const
+	id: "id",
+	userId: "userId",
+	taskId: "taskId",
+	assignedAt: "assignedAt",
+} as const;
 
 export type TaskUserScalarFieldEnum =
-  (typeof TaskUserScalarFieldEnum)[keyof typeof TaskUserScalarFieldEnum]
+	(typeof TaskUserScalarFieldEnum)[keyof typeof TaskUserScalarFieldEnum];
 
 export const SortOrder = {
-  asc: 'asc',
-  desc: 'desc',
-} as const
+	asc: "asc",
+	desc: "desc",
+} as const;
 
-export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 export const QueryMode = {
-  default: 'default',
-  insensitive: 'insensitive',
-} as const
+	default: "default",
+	insensitive: "insensitive",
+} as const;
 
-export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode];
 
 export const NullsOrder = {
-  first: 'first',
-  last: 'last',
-} as const
+	first: "first",
+	last: "last",
+} as const;
 
-export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder];
