@@ -9,21 +9,21 @@ type HTTPProject = {
 	updatedAt: Date;
 };
 
-export class ProjectPresenter {
-	static toHTTP(project: Project): HTTPProject;
-	static toHTTP(projects: Project[]): HTTPProject[];
-	static toHTTP(input: Project | Project[]): HTTPProject | HTTPProject[] {
-		if (Array.isArray(input)) {
-			return input.map((project) => this.toHTTP(project));
-		}
-
-		return {
-			id: input.id,
-			name: input.name,
-			description: input.description,
-			status: input.status,
-			createdAt: input.createdAt,
-			updatedAt: input.updatedAt,
-		};
+export function toHTTP(project: Project): HTTPProject;
+export function toHTTP(projects: Project[]): HTTPProject[];
+export function toHTTP(
+	input: Project | Project[],
+): HTTPProject | HTTPProject[] {
+	if (Array.isArray(input)) {
+		return input.map((project) => toHTTP(project));
 	}
+
+	return {
+		id: input.id,
+		name: input.name,
+		description: input.description,
+		status: input.status,
+		createdAt: input.createdAt,
+		updatedAt: input.updatedAt,
+	};
 }

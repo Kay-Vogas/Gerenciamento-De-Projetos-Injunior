@@ -8,20 +8,19 @@ type HTTPUser = {
 	updatedAt: Date;
 };
 
-export class UserPresenter {
-	static toHTTP(user: User): HTTPUser;
-	static toHTTP(users: User[]): HTTPUser[];
-	static toHTTP(input: User | User[]): HTTPUser | HTTPUser[] {
-		if (Array.isArray(input)) {
-			return input.map((user) => this.toHTTP(user));
-		}
-
-		return {
-			id: input.id,
-			name: input.name,
-			email: input.email,
-			createdAt: input.createdAt,
-			updatedAt: input.updatedAt,
-		};
+export function toHTTP(user: User): HTTPUser;
+export function toHTTP(users: User[]): HTTPUser[];
+export function toHTTP(input: User | User[]): HTTPUser | HTTPUser[] {
+	if (Array.isArray(input)) {
+		// Agora chamamos a função diretamente, sem a classe
+		return input.map((user) => toHTTP(user));
 	}
+
+	return {
+		id: input.id,
+		name: input.name,
+		email: input.email,
+		createdAt: input.createdAt,
+		updatedAt: input.updatedAt,
+	};
 }

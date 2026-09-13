@@ -15,9 +15,9 @@ export async function ListTasksByUser(
 		const { tasks } = await listUseCase.execute({ userId: id });
 
 		return reply.status(200).send({ tasks: TaskPresenter.toHTTP(tasks) });
-	} catch (error) {
-		return reply
-			.status(400)
-			.send({ message: "Erro ao listar tarefas do usuário", error });
+	} catch (error: unknown) {
+		if (error instanceof Error && error.message.includes("Não autorizado")) {
+			return reply.status(403).send({ message: error.message });
+		}
 	}
 }

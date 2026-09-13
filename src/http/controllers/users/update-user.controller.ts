@@ -1,5 +1,5 @@
 import type { FastifyReply, FastifyRequest } from "fastify";
-import z, { email, string } from "zod";
+import z from "zod";
 import { UserPresenter } from "@/http/presenters/user-presenter.js";
 import { makeUpdateUser } from "@/use-cases/users/facotories-user/make-update.js";
 
@@ -26,5 +26,5 @@ export async function updateUser(request: FastifyRequest, reply: FastifyReply) {
 		});
 
 		return reply.status(202).send(UserPresenter.toHTTP(user));
-	} catch (error) {}
+	} catch {}
 }

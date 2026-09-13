@@ -27,12 +27,9 @@ export async function CompleteTask(
 		});
 
 		return reply.status(200).send({ task });
-	} catch (error: any) {
-		if (error.message.includes("Não autorizado")) {
+	} catch (error: unknown) {
+		if (error instanceof Error && error.message.includes("Não autorizado")) {
 			return reply.status(403).send({ message: error.message });
 		}
-		return reply
-			.status(400)
-			.send({ message: "Erro ao concluir a tarefa", error });
 	}
 }

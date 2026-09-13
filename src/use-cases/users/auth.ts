@@ -1,6 +1,5 @@
-import bcrypt, { compare, hash } from "bcryptjs";
+import bcrypt from "bcryptjs";
 import type { User } from "@/@types/prisma/client.js";
-import { env } from "@/env/index.js";
 import type { UserRepository } from "@/repositories/users-repository.js";
 
 interface AuthUserUseCaseRequest {

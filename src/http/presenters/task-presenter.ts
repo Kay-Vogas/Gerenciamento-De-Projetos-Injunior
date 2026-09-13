@@ -10,22 +10,20 @@ type HTTPTask = {
 	projectId: string;
 };
 
-export class TaskPresenter {
-	static toHTTP(task: Task): HTTPTask;
-	static toHTTP(tasks: Task[]): HTTPTask[];
-	static toHTTP(input: Task | Task[]): HTTPTask | HTTPTask[] {
-		if (Array.isArray(input)) {
-			return input.map((task) => this.toHTTP(task));
-		}
-
-		return {
-			id: input.id,
-			title: input.title,
-			description: input.description,
-			priority: input.priority,
-			completed: input.completed,
-			deadline: input.deadline,
-			projectId: input.projectId,
-		};
+export function toHTTP(task: Task): HTTPTask;
+export function toHTTP(tasks: Task[]): HTTPTask[];
+export function toHTTP(input: Task | Task[]): HTTPTask | HTTPTask[] {
+	if (Array.isArray(input)) {
+		return input.map((task) => toHTTP(task));
 	}
+
+	return {
+		id: input.id,
+		title: input.title,
+		description: input.description,
+		priority: input.priority,
+		completed: input.completed,
+		deadline: input.deadline,
+		projectId: input.projectId,
+	};
 }

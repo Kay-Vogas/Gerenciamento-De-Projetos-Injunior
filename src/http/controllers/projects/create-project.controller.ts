@@ -21,7 +21,7 @@ export async function CreateProject(
 		});
 
 		return reply.status(201).send({ project });
-	} catch (error) {
+	} catch (_error) {
 		throw new Error("Erro ao criar um projeto novo");
 	}
 }

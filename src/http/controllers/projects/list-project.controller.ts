@@ -10,7 +10,7 @@ export async function listProject(
 		const project = await listProjectUseCase.execute();
 
 		return reply.status(200).send({ project });
-	} catch (eror) {
+	} catch (_error) {
 		throw new Error("Ocorreu algum problema na listagem dos Projetos.");
 	}
 }
