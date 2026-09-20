@@ -23,4 +23,6 @@ export async function userRoutes(app: FastifyInstance) {
 	app.delete("/:id", { onRequest: verifyJwt }, deleteUser);
 
 	app.get("/:id/tasks", { onRequest: verifyJwt }, ListTasksByUser);
+
+	// app.patch("")
 }
