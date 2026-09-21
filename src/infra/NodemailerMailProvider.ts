@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import type { EmailDTO, SendEmail } from "./Email.interface.js";
+import { env } from "@/env/index.js";
  
 export class NodeMailer implements SendEmail{
     transporter: import("nodemailer").Mail<import("nodemailer").SMTPSentMessageInfo>;
@@ -8,8 +9,8 @@ export class NodeMailer implements SendEmail{
         this.transporter = nodemailer.createTransport({
             service:"gmail",
             auth:{
-                user:"kay.vogas@gmail.com",
-                pass:"fmdq ejyp irrj ihah"
+                user:env.EMAIL,
+                pass:env.PASSWORD
             }     
         })
     }
