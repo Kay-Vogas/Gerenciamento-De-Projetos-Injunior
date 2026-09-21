@@ -8,11 +8,15 @@ import { getUser } from "./get-user.controller.js";
 import { listUsers } from "./list-users.controller.js";
 import { registerUser } from "./register-users.controller.js";
 import { updateUser } from "./update-user.controller.js";
+import { RecuperaSenha } from "./rec-de-password.controller.js";
 
 export async function userRoutes(app: FastifyInstance) {
+	// Rotas públicas (sem token)
 	app.post("/register", registerUser);
 	app.post("/login", AuthUser);
+	app.post("/forgot-password", RecuperaSenha); 
 
+	// Rotas protegidas
 	app.get("/:id", { onRequest: verifyJwt }, getUser);
 	app.get("/", { onRequest: verifyJwt }, listUsers);
 	app.patch(
@@ -23,6 +27,4 @@ export async function userRoutes(app: FastifyInstance) {
 	app.delete("/:id", { onRequest: verifyJwt }, deleteUser);
 
 	app.get("/:id/tasks", { onRequest: verifyJwt }, ListTasksByUser);
-
-	// app.patch("")
 }
