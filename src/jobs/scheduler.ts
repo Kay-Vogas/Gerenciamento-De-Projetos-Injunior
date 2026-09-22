@@ -1,18 +1,45 @@
 import type { FastifyBaseLogger } from "fastify";
+import cron from "node-cron";
 import type { Job } from "@/jobs/job.interface.js";
 
-export class OverdueTasksJob implements Job {
-  readonly name = "overdue-tasks-digest";
+export type CronTask = ReturnType<typeof cron.schedule>;
 
-  constructor(
-    readonly schedule: string,
-    private logger: FastifyBaseLogger,
-  ) {}
+export function startJobs(
+  jobs: Job[],
+  logger: FastifyBaseLogger,
+  timezone: string,
+): CronTask[] {
+  return jobs.map((job) => {
+    if (!cron.validate(job.schedule)) {
+      throw new Error(
+        `Expressão CRON inválida para o job "${job.name}": "${job.schedule}"`,
+      );
+    }
 
-  async handle(): Promise<void> {
-    const useCase = makeSendOverdueTasksDigestUseCase();
-    const result = await useCase.execute();
+    const task = cron.schedule(
+      job.schedule,
+      async () => {
+        logger.info(`[job:${job.name}] iniciando`);
 
-    this.logger.info(result, `[job:${this.name}] resumo da execução`);
-  }
+        try {
+          await job.handle();
+          logger.info(`[job:${job.name}] finalizado`);
+        } catch (error) {
+          
+          logger.error({ err: error }, `[job:${job.name}] falhou`);
+        }
+      },
+      {
+        name: job.name,
+        timezone,
+        noOverlap: true, 
+      },
+    );
+
+    logger.info(
+      `[job:${job.name}] agendado com "${job.schedule}" (${timezone})`,
+    );
+
+    return task;
+  });
 }

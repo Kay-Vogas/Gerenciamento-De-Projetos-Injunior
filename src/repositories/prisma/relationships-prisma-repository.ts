@@ -10,7 +10,6 @@ export class PrismaTaskUserRepository implements TaskUserRepository {
 	}
 
 	async unassign(taskId: string, userId: string) {
-		// Usamos deleteMany porque a PK da tabela relacional pode não estar disponível facilmente nas rotas
 		await prisma.taskUser.deleteMany({
 			where: { taskId, userId },
 		});
