@@ -1,6 +1,7 @@
 // src/use-cases/rec-senha.ts
 import type { TokenProvider } from "@/http/middlewares/token-provider.js";
 import type { SendEmail } from "@/infra/Email.interface.js";
+ 
 import type { UserRepository } from "@/repositories/users-repository.js";
 
 interface RecSenha {

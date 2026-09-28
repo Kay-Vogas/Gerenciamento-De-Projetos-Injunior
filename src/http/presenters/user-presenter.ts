@@ -23,3 +23,5 @@ export function toHTTP(input: User | User[]): HTTPUser | HTTPUser[] {
 		updatedAt: input.updatedAt,
 	};
 }
+
+export const UserPresenter = { toHTTP };

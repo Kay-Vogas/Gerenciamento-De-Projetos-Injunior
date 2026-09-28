@@ -14,16 +14,9 @@ app.register(appRoutes);
 
 app.setErrorHandler((error, _request, reply) => {
 	if (error instanceof ZodError) {
-		return reply.status(400).send({
-			message: "Error na Validação",
-			issues: error.format(),
-		});
+ 		return reply.status(400).send({ message: "Error na Validação" });
 	}
-
-	if (error instanceof SyntaxError) {
-		return reply.status(400).send({
-			mesagge:
-				"O corpo da requesição não está no formato JSON válido, verifique a estrutura de dados enviados...",
-		});
-	}
+  	
+	return reply.status(500).send({ message: "O corpo da requesição não está no formato JSON válido, verifique a estrutura de dados enviados..." });
+	
 });

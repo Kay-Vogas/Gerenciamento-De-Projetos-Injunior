@@ -1,10 +1,10 @@
-import Redis from "ioredis";
+import { Redis } from "ioredis";
 
 export const redis = new Redis({
 	host: process.env.REDIS_HOST ?? "localhost",
 	port: Number(process.env.REDIS_PORT ?? 6379),
 });
 
-redis.on("error", (err) => {
+redis.on("error", (err:Error) => {
 	console.error("Erro no Redis:", err);
 });
