@@ -1,7 +1,7 @@
 import type { FastifyReply, FastifyRequest } from "fastify";
 import z from "zod";
-import { makeListTasks } from "@/use-cases/tasks/factories-task/make-list.js";
 import { redis } from "@/libs/redis.js";
+import { makeListTasks } from "@/use-cases/tasks/factories-task/make-list.js";
 
 const CACHE_KEY = "tasks:all";
 const TTL_SECONDS = 60;
@@ -22,8 +22,8 @@ export async function ListTasks(request: FastifyRequest, reply: FastifyReply) {
 		const cached = await redis.get(CACHE_KEY);
 
 		if (cached) {
-    		console.log("CACHE HIT");
-    		return listTasksQuerySchema.parse(JSON.parse(cached));
+			console.log("CACHE HIT");
+			return listTasksQuerySchema.parse(JSON.parse(cached));
 		}
 
 		const { projectId, priority, completed } = listTasksQuerySchema.parse(
@@ -37,7 +37,7 @@ export async function ListTasks(request: FastifyRequest, reply: FastifyReply) {
 			completed,
 		});
 
-		await redis.set(CACHE_KEY, JSON.stringify({ tasks } ), "EX", TTL_SECONDS);
+		await redis.set(CACHE_KEY, JSON.stringify({ tasks }), "EX", TTL_SECONDS);
 
 		return reply.status(200).send({ tasks });
 	} catch (error) {

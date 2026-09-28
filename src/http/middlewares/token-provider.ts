@@ -1,4 +1,4 @@
 export interface TokenProvider {
-  generateResetToken(userId: string): string;
-  verifyResetToken(token: string): { sub: string };
+	generateResetToken(userId: string): string;
+	verifyResetToken(token: string): { sub: string };
 }

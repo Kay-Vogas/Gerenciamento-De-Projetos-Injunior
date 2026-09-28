@@ -5,9 +5,9 @@ import { PrismaUserRepository } from "@/repositories/prisma/users-prisma-reposit
 import { RecSenhaUseCase } from "../rec-senha.js";
 
 export function makeRecSenhaUseCase() {
-  const userRepository = new PrismaUserRepository();
-  const tokenProvider = new FastifyJwtTokenProvider(app);
-  const sendEmail = new NodeMailer();
+	const userRepository = new PrismaUserRepository();
+	const tokenProvider = new FastifyJwtTokenProvider(app);
+	const sendEmail = new NodeMailer();
 
-  return new RecSenhaUseCase(userRepository, tokenProvider, sendEmail);
+	return new RecSenhaUseCase(userRepository, tokenProvider, sendEmail);
 }
