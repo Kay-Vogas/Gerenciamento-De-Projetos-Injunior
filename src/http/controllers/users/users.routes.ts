@@ -6,15 +6,15 @@ import { AuthUser } from "./auth-user.controller.js";
 import { deleteUser } from "./delete-user.controller.js";
 import { getUser } from "./get-user.controller.js";
 import { listUsers } from "./list-users.controller.js";
+import { RecuperaSenha } from "./rec-de-password.controller.js";
 import { registerUser } from "./register-users.controller.js";
 import { updateUser } from "./update-user.controller.js";
-import { RecuperaSenha } from "./rec-de-password.controller.js";
 
 export async function userRoutes(app: FastifyInstance) {
 	// Rotas públicas (sem token)
 	app.post("/register", registerUser);
 	app.post("/login", AuthUser);
-	app.post("/forgot-password", RecuperaSenha); 
+	app.post("/forgot-password", RecuperaSenha);
 
 	// Rotas protegidas
 	app.get("/:id", { onRequest: verifyJwt }, getUser);

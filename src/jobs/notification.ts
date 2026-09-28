@@ -1,25 +1,39 @@
-const cron = require('node-cron');
-const { buscarAtividadesProximas } = require('../services/atividadeService');
-const { enviarEmailAtividade } = require('../services/mailer');
+import { NodemailerMailProvider } from "@/infra/NodemailerMailProvider.js";
+import { prisma } from "@/libs/prisma.js";
 
-function iniciarCronNotificacoes() {
-  // roda a cada 15 minutos
-  cron.schedule('*/15 * * * *', async () => {
-    console.log('[CRON] Verificando atividades pendentes...');
-    try {
-      const atividades = await buscarAtividadesProximas();
+export async function notifyTasksDueSoon() {
+	const now = new Date();
+	const inOneHour = new Date(now.getTime() + 60 * 60 * 1000);
 
-      for (const atividade of atividades) {
-        await enviarEmailAtividade(atividade.responsavel.email, atividade);
-        atividade.notificado = true;
-        await atividade.save();
-      }
+	const assignments = await prisma.taskUser.findMany({
+		where: {
+			task: {
+				deadline: { gte: now, lte: inOneHour },
+				completed: false,
+				notified: false,
+			},
+		},
+		include: { user: true, task: true },
+	});
 
-      console.log(`[CRON] ${atividades.length} e-mail(s) enviado(s).`);
-    } catch (erro) {
-      console.error('[CRON] Erro ao enviar notificações:', erro);
-    }
-  }, { timezone: 'America/Sao_Paulo' });
+	const mailer = new NodemailerMailProvider();
+	for (const { user, task } of assignments) {
+		await mailer.send({
+			to: user.email,
+			subject: `Lembrete: ${task.title}`,
+			html: `
+				<p>Sua tarefa <strong>${task.title}</strong> está vencendo!</p>
+				<p>Prazo: ${task.deadline.toLocaleString("pt-BR")}</p>
+			`,
+		});
+	}
+
+	const taskIds = [...new Set(assignments.map((a) => a.task.id))];
+
+	await prisma.task.updateMany({
+		where: { id: { in: taskIds } },
+		data: { notified: true },
+	});
+
+	console.log(`[CRON] ${taskIds.length} tarefa(s) notificada(s).`);
 }
-
-module.exports = { iniciarCronNotificacoes };

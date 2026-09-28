@@ -10,9 +10,9 @@ type HTTPTask = {
 	projectId: string;
 };
 
-export function toHTTP(task: Task): HTTPTask;
-export function toHTTP(tasks: Task[]): HTTPTask[];
-export function toHTTP(input: Task | Task[]): HTTPTask | HTTPTask[] {
+function toHTTP(task: Task): HTTPTask;
+function toHTTP(tasks: Task[]): HTTPTask[];
+function toHTTP(input: Task | Task[]): HTTPTask | HTTPTask[] {
 	if (Array.isArray(input)) {
 		return input.map((task) => toHTTP(task));
 	}
@@ -27,3 +27,5 @@ export function toHTTP(input: Task | Task[]): HTTPTask | HTTPTask[] {
 		projectId: input.projectId,
 	};
 }
+
+export const TaskPresenter = { toHTTP };

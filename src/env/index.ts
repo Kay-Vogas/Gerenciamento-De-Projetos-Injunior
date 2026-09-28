@@ -13,7 +13,7 @@ const envSchema = z.object({
 
 	JWT_SECRET: z.string().min(1),
 	EMAIL: z.string().min(1),
-	PASSWORD: z.string().min(1)
+	PASSWORD: z.string().min(1),
 });
 
 const _env = envSchema.safeParse(process.env);
