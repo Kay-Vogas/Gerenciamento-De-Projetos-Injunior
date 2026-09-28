@@ -1,13 +1,17 @@
-const Atividade = require("../models/Atividade");
+import { prisma } from "@/libs/prisma.js";
 
-async function buscarAtividadesProximas() {
+export async function buscarAtividadesProximas() {
 	const agora = new Date();
 	const em1Hora = new Date(agora.getTime() + 60 * 60 * 1000);
 
-	return Atividade.find({
-		dataLimite: { $gte: agora, $lte: em1Hora },
-		notificado: false, // evita reenviar o mesmo e-mail várias vezes
-	}).populate("responsavel");
+	return prisma.taskUser.findMany({
+		where: {
+			task: {
+				deadline: { gte: agora, lte: em1Hora },
+				completed: false,
+				notified: false,
+			},
+		},
+		include: { user: true, task: true },
+	});
 }
-
-module.exports = { buscarAtividadesProximas };

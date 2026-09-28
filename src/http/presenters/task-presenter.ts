@@ -10,22 +10,22 @@ type HTTPTask = {
 	projectId: string;
 };
 
-export class TaskPresenter {
-	static toHTTP(task: Task): HTTPTask;
-	static toHTTP(tasks: Task[]): HTTPTask[];
-	static toHTTP(input: Task | Task[]): HTTPTask | HTTPTask[] {
-		if (Array.isArray(input)) {
-			return input.map((task) => TaskPresenter.toHTTP(task));
-		}
-		return {
-			id: input.id,
-			title: input.title,
-			description: input.description,
-			priority: input.priority,
-			completed: input.completed,
-			deadline: input.deadline,
-			projectId: input.projectId,
-		};
+function toHTTP(task: Task): HTTPTask;
+function toHTTP(tasks: Task[]): HTTPTask[];
+function toHTTP(input: Task | Task[]): HTTPTask | HTTPTask[] {
+	if (Array.isArray(input)) {
+		return input.map((task) => toHTTP(task));
 	}
+
+	return {
+		id: input.id,
+		title: input.title,
+		description: input.description,
+		priority: input.priority,
+		completed: input.completed,
+		deadline: input.deadline,
+		projectId: input.projectId,
+	};
 }
 
+export const TaskPresenter = { toHTTP };

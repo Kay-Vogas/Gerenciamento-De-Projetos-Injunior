@@ -1,8 +1,6 @@
 import { app } from "./app.js";
 import { env } from "./env/index.js";
-
-require("dotenv").config();
-const { iniciarCronNotificacoes } = require("./jobs/notificacoes");
+import { notifyTasksDueSoon } from "./jobs/notification.js";
 
 app
 	.listen({
@@ -12,6 +10,5 @@ app
 	.then(() => {
 		const url = `htpp://localhost:${env.PORT}`;
 		console.log(`Htpp server Running at ${url}`);
+		notifyTasksDueSoon();
 	});
-
-iniciarCronNotificacoes();
