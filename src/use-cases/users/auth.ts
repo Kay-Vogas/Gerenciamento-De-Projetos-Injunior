@@ -14,10 +14,8 @@ type AuthUserUseCaseResponse = {
 export class AuthUserUseCase {
 	constructor(private userReposiry: UserRepository) {}
 
-	async execute({
-		login,
-		password,
-	}: AuthUserUseCaseRequest): Promise<AuthUserUseCaseResponse> {
+	async execute({login,password,}: AuthUserUseCaseRequest): Promise<AuthUserUseCaseResponse> {
+		
 		const user = await this.userReposiry.findByEmailOrName(login, login);
 
 		if (!user) {
